@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 
@@ -22,10 +23,28 @@ display:flex;
 align-items:center;
 justify-content:center;
 gap:20px;
+flex-wrap:wrap;
 }
 
 header img{
 height:70px;
+}
+
+.navbuttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+padding:15px;
+}
+
+.navbuttons a{
+background:#1f3a5f;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
 }
 
 .section{
@@ -63,8 +82,15 @@ border-radius:10px;
 margin-top:10px;
 }
 
-img{
-max-width:100%;
+.directionbtn{
+display:inline-block;
+margin-top:15px;
+background:#2e7d32;
+color:white;
+padding:12px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
 }
 
 </style>
@@ -86,7 +112,17 @@ max-width:100%;
 </header>
 
 
-<div class="section">
+<div class="navbuttons">
+
+<a href="#checkin">Check-In</a>
+<a href="#map">Map</a>
+<a href="#services">Services</a>
+<a href="#contacts">Contacts</a>
+
+</div>
+
+
+<div class="section" id="checkin">
 
 <h2>Check-In Location</h2>
 
@@ -94,19 +130,29 @@ max-width:100%;
 <p>Building 235</p>
 <p>Reception Desk – Open 24 Hours</p>
 
+<a class="directionbtn"
+href="https://maps.google.com/?q=Building+235+Kaiserslautern"
+target="_blank">
+Get Directions
+</a>
+
 </div>
 
 
-<div class="section">
+<div class="section" id="map">
 
 <h2>DPC Area Map</h2>
 
+<a href="dpc-map.png" target="_blank">
 <img class="mapimg" src="dpc-map.png" alt="DPC Area Map">
+</a>
+
+<p>Tap the map to open full screen.</p>
 
 </div>
 
 
-<div class="section">
+<div class="section" id="services">
 
 <h2>Available Services</h2>
 
@@ -180,7 +226,7 @@ max-width:100%;
 </div>
 
 
-<div class="section">
+<div class="section" id="contacts">
 
 <h2>Important Contacts</h2>
 
@@ -195,3 +241,4 @@ max-width:100%;
 
 </body>
 </html>
+```
