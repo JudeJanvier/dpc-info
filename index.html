@@ -1,249 +1,157 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>DPC Information Board</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-
-body{
-font-family: Arial;
-margin:0;
-background:#f4f6f9;
-text-align:center;
-}
-
-header{
-background:#1f3a5f;
-color:white;
-padding:25px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-header img{
-height:70px;
-}
-
-.navbuttons{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-padding:15px;
-}
-
-.navbuttons a{
-background:#1f3a5f;
-color:white;
-padding:12px 20px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-}
-
-.section{
-background:white;
-margin:15px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 2px 5px rgba(0,0,0,0.15);
-}
-
-h2{
-color:#1f3a5f;
-}
-
-/* MOBILE FRIENDLY TABLE */
-
-.table-wrapper{
-overflow-x:auto;
-margin-top:10px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-min-width:650px;
-}
-
-th, td{
-border:1px solid #ddd;
-padding:10px;
-text-align:left;
-}
-
-th{
-background:#1f3a5f;
-color:white;
-}
-
-.mapimg{
-width:100%;
-border-radius:10px;
-margin-top:10px;
-}
-
-.directionbtn{
-display:inline-block;
-margin-top:15px;
-background:#2e7d32;
-color:white;
-padding:14px 22px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-font-size:16px;
-}
-
-</style>
-
+    <title>DPC Information Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; text-align: center; }
+        header { background: #1f3a5f; color: white; padding: 25px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        header img { height: 70px; }
+        .navbuttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 15px; }
+        .navbuttons a { background: #1f3a5f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .section { background: white; margin: 15px; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
+        h2 { color: #1f3a5f; }
+        .table-wrapper { overflow-x: auto; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #1f3a5f; color: white; }
+        .mapimg { width: 100%; border-radius: 10px; margin-top: 10px; }
+        .directionbtn { display: inline-block; margin-top: 15px; background: #2e7d32; color: white; padding: 14px 22px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; }
+        #contacts p { margin: 5px 0; } /* Added for better spacing in contacts */
+    </style>
 </head>
-
 <body>
 
+    <header>
+        <img src="logo.png" alt="Logo">
+        <div>
+            <h1>DPC Information Board</h1>
+            <p>Supported by 21st Theater Sustainment Command</p>
+        </div>
+    </header>
 
-<header>
+    <div class="navbuttons">
+        <a href="#map">Map</a>
+        <a href="#services">Services</a>
+        <a href="#contacts">Contacts</a>
+    </div>
 
-<img src="logo.png">
+    <div class="section" id="map">
+        <h2>DPC Area Map</h2>
+        <a href="dpc-map.png" target="_blank">
+            <img class="mapimg" src="dpc-map.png" alt="DPC Area Map">
+        </a>
+        <p>Tap the map to open full screen.</p>
+        <a class="directionbtn" href="https://www.google.com/maps/search/?api=1&query=49.4406,7.6003" target="_blank">
+            Navigate to Building 235
+        </a>
+    </div>
 
-<div>
-<h1>DPC Information Board</h1>
-<p>Supported by 21st Theater Sustainment Command</p>
-</div>
+    <div class="section" id="services">
+        <h2>Available Services</h2>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Service / Facility</th>
+                    <th>Location</th>
+                    <th>Availability / Hours</th>
+                    <th>Key Information</th>
+                </tr>
+                <tr>
+                    <td>Sick Call</td>
+                    <td>Building 235</td>
+                    <td>07:30 – 11:00</td>
+                    <td>Primary care for minor illnesses/injuries</td>
+                </tr>
+                <tr>
+                    <td>Mayor's Cell</td>
+                    <td>Building 230</td>
+                    <td>24 Hours</td>
+                    <td>Primary care of personnel and movements</td>
+                </tr>
+                <tr>
+                    <td>Shoppette</td>
+                    <td>On Post</td>
+                    <td>Mon-Fri 07:30 – 18:00 / Sat 10:00 – 16:00 / Sun Closed</td>
+                    <td>Convenience store</td>
+                </tr>
+                <tr>
+                    <td>Aid Station</td>
+                    <td>Building 235</td>
+                    <td>24 Hours</td>
+                    <td>Available for sickness</td>
+                </tr>
+                <tr>
+                    <td>Chaplain</td>
+                    <td>On Call</td>
+                    <td>On Call</td>
+                    <td>Spiritual support</td>
+                </tr>
+                <tr>
+                    <td>Behavioral Health</td>
+                    <td>Building 235</td>
+                    <td>24 Hours</td>
+                    <td>Mental health support</td>
+                </tr>
+                <tr>
+                    <td>USO</td>
+                    <td>Building 235</td>
+                    <td>24 Hours</td>
+                    <td>Provide comfort, entertainment, and resources</td>
+                </tr>
+                <tr>
+                    <td>Defender Dining Facility</td>
+                    <td>Near Building 238</td>
+                    <td>See posted hours</td>
+                    <td>Dining facility</td>
+                </tr>
+                <tr>
+                    <td>ROB Fitness Center</td>
+                    <td>Rhine Ordnance Barracks 172</td>
+                    <td>Mon-Fri 05:30 – 20:00 / Sat-Sun Closed</td>
+                    <td>Gym and sauna available.</td>
+                </tr>
+                <tr>
+                    <td>Military & Family Life Counseling (MFLC)</td>
+                    <td>On Call</td>
+                    <td>Contact for appointment</td>
+                    <td>Free, confidential counseling. No records kept.</td>
+                </tr>
+                <tr>
+                    <td>Protestant Worship Service</td>
+                    <td>DPC USO / Bldg. 235 Rm. 3</td>
+                    <td>Sundays @ 10:00</td>
+                    <td>Open to all personnel.</td>
+                </tr>
+                <tr>
+                    <td>Catholic Mass</td>
+                    <td>Bldg. 235 Rm. 3</td>
+                    <td>Sundays @ 14:00</td>
+                    <td>Open to all personnel.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-</header>
-
-
-<div class="navbuttons">
-
-<a href="#map">Map</a>
-<a href="#services">Services</a>
-<a href="#contacts">Contacts</a>
-
-</div>
-
-
-
-<div class="section" id="map">
-
-<h2>DPC Area Map</h2>
-
-<a href="dpc-map.png" target="_blank">
-<img class="mapimg" src="dpc-map.png" alt="DPC Area Map">
-</a>
-
-<p>Tap the map to open full screen.</p>
-
-
-<a class="directionbtn"
-href="https://www.google.com/maps/search/?api=1&query=49.4406,7.6003"
-target="_blank">
-
-Navigate to Building 235
-
-</a>
-
-</div>
-
-
-
-<div class="section" id="services">
-
-<h2>Available Services</h2>
-
-<div class="table-wrapper">
-
-<table>
-
-<tr>
-<th>Service / Facility</th>
-<th>Location</th>
-<th>Availability / Hours</th>
-<th>Key Information</th>
-</tr>
-
-<tr>
-<td>Sick Call</td>
-<td>Building 235</td>
-<td>07:30 – 11:00</td>
-<td>Primary care for minor illnesses/injuries</td>
-</tr>
-
-<tr>
-<td>Mayor's Cell</td>
-<td>Building 230</td>
-<td>24 Hours</td>
-<td>Primary care of personnel and movements</td>
-</tr>
-
-<tr>
-<td>Shoppette</td>
-<td>On Post</td>
-<td>Mon-Fri 07:30 – 18:00 / Sat 10:00 – 16:00 / Sun Closed</td>
-<td>Convenience store</td>
-</tr>
-
-<tr>
-<td>Aid Station</td>
-<td>Building 235</td>
-<td>24 Hours</td>
-<td>Available for sickness</td>
-</tr>
-
-<tr>
-<td>Chaplain</td>
-<td>On Call</td>
-<td>On Call</td>
-<td>Spiritual support</td>
-</tr>
-
-<tr>
-<td>Behavioral Health</td>
-<td>Building 235</td>
-<td>24 Hours</td>
-<td>Mental health support</td>
-</tr>
-
-<tr>
-<td>USO</td>
-<td>Building 235</td>
-<td>24 Hours</td>
-<td>Provide comfort, entertainment, and resources</td>
-</tr>
-
-<tr>
-<td>Defender Dining Facility</td>
-<td>Near Building 238</td>
-<td>See posted hours</td>
-<td>Dining facility</td>
-</tr>
-
-</table>
-
-</div>
-
-</div>
-
-
-
-<div class="section" id="contacts">
-
-<h2>Important Contacts</h2>
-
-<p><strong>USO Front Desk</strong></p>
-<p>Building 235</p>
-
-<p><strong>Emergency</strong></p>
-<p>112</p>
-
-</div>
-
+    <div class="section" id="contacts">
+        <h2>Important Contacts</h2>
+        <p><strong>USO Front Desk</strong></p>
+        <p>Building 235</p>
+        <br>
+        <p><strong>DPC Chaplain - CH (CPT) Gabriel Pech</strong></p>
+        <p>Cell: +49 151 5404 6158</p>
+        <p>Email: gabriel.p.pech.mil@army.mil</p>
+        <p>Services: Confidential counseling for marriage, life crisis, grief, and trauma.</p>
+        <br>
+        <p><strong>Military & Family Life Counseling (MFLC)</strong></p>
+        <p>Phone: +49-175-601-1985</p>
+        <br>
+        <p><strong>After Hours Emergency Chaplain</strong></p>
+        <p>On Call Duty Chaplain: +49 (0)162 2969054</p>
+        <br>
+        <p><strong>Emergency</strong></p>
+        <p>112</p>
+    </div>
 
 </body>
 </html>
