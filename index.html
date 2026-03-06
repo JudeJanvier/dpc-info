@@ -1,9 +1,9 @@
-```html
+
 <!DOCTYPE html>
 <html>
 
 <head>
-<title>DPC Arrival Information</title>
+<title>DPC Information Board</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -59,10 +59,17 @@ h2{
 color:#1f3a5f;
 }
 
+/* MOBILE FRIENDLY TABLE */
+
+.table-wrapper{
+overflow-x:auto;
+margin-top:10px;
+}
+
 table{
 width:100%;
 border-collapse:collapse;
-margin-top:15px;
+min-width:650px;
 }
 
 th, td{
@@ -87,10 +94,11 @@ display:inline-block;
 margin-top:15px;
 background:#2e7d32;
 color:white;
-padding:12px 18px;
+padding:14px 22px;
 border-radius:8px;
 text-decoration:none;
 font-weight:bold;
+font-size:16px;
 }
 
 </style>
@@ -105,7 +113,7 @@ font-weight:bold;
 <img src="logo.png">
 
 <div>
-<h1>DPC Arrival Information</h1>
+<h1>DPC Information Board</h1>
 <p>Supported by 21st Theater Sustainment Command</p>
 </div>
 
@@ -114,29 +122,12 @@ font-weight:bold;
 
 <div class="navbuttons">
 
-<a href="#checkin">Check-In</a>
 <a href="#map">Map</a>
 <a href="#services">Services</a>
 <a href="#contacts">Contacts</a>
 
 </div>
 
-
-<div class="section" id="checkin">
-
-<h2>Check-In Location</h2>
-
-<p><strong>USO Front Desk</strong></p>
-<p>Building 235</p>
-<p>Reception Desk – Open 24 Hours</p>
-
-<a class="directionbtn"
-href="https://maps.google.com/?q=Building+235+Kaiserslautern"
-target="_blank">
-Get Directions
-</a>
-
-</div>
 
 
 <div class="section" id="map">
@@ -149,12 +140,24 @@ Get Directions
 
 <p>Tap the map to open full screen.</p>
 
+
+<a class="directionbtn"
+href="https://www.google.com/maps/search/?api=1&query=49.4406,7.6003"
+target="_blank">
+
+Navigate to Building 235
+
+</a>
+
 </div>
+
 
 
 <div class="section" id="services">
 
 <h2>Available Services</h2>
+
+<div class="table-wrapper">
 
 <table>
 
@@ -225,13 +228,16 @@ Get Directions
 
 </div>
 
+</div>
+
+
 
 <div class="section" id="contacts">
 
 <h2>Important Contacts</h2>
 
-<p><strong>DPC Reception</strong></p>
-<p>USO Front Desk – Building 235</p>
+<p><strong>USO Front Desk</strong></p>
+<p>Building 235</p>
 
 <p><strong>Emergency</strong></p>
 <p>112</p>
@@ -241,4 +247,3 @@ Get Directions
 
 </body>
 </html>
-```
