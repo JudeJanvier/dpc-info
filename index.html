@@ -17,7 +17,15 @@ text-align:center;
 header{
 background:#1f3a5f;
 color:white;
-padding:30px;
+padding:25px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:20px;
+}
+
+header img{
+height:70px;
 }
 
 .section{
@@ -32,37 +40,158 @@ h2{
 color:#1f3a5f;
 }
 
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+th, td{
+border:1px solid #ddd;
+padding:10px;
+text-align:left;
+}
+
+th{
+background:#1f3a5f;
+color:white;
+}
+
+.mapimg{
+width:100%;
+border-radius:10px;
+margin-top:10px;
+}
+
+img{
+max-width:100%;
+}
+
 </style>
 
 </head>
 
 <body>
 
+
 <header>
+
+<img src="logo.png">
+
+<div>
 <h1>DPC Arrival Information</h1>
-<p>Welcome. Use the information below for arrival guidance.</p>
+<p>Supported by 21st Theater Sustainment Command</p>
+</div>
+
 </header>
 
+
 <div class="section">
+
 <h2>Check-In Location</h2>
-<p>Building 210</p>
-<p>Reporting Hours: 0800 – 1700</p>
+
+<p><strong>USO Front Desk</strong></p>
+<p>Building 235</p>
+<p>Reception Desk – Open 24 Hours</p>
+
 </div>
 
-<div class="section">
-<h2>Dining Facility Hours</h2>
-<p>Breakfast: 0600 – 0900</p>
-<p>Lunch: 1130 – 1330</p>
-<p>Dinner: 1700 – 1900</p>
-</div>
 
 <div class="section">
+
+<h2>DPC Area Map</h2>
+
+<img class="mapimg" src="dpc-map.png" alt="DPC Area Map">
+
+</div>
+
+
+<div class="section">
+
+<h2>Available Services</h2>
+
+<table>
+
+<tr>
+<th>Service / Facility</th>
+<th>Location</th>
+<th>Availability / Hours</th>
+<th>Key Information</th>
+</tr>
+
+<tr>
+<td>Sick Call</td>
+<td>Building 235</td>
+<td>07:30 – 11:00</td>
+<td>Primary care for minor illnesses/injuries</td>
+</tr>
+
+<tr>
+<td>Mayor's Cell</td>
+<td>Building 230</td>
+<td>24 Hours</td>
+<td>Primary care of personnel and movements</td>
+</tr>
+
+<tr>
+<td>Shoppette</td>
+<td>On Post</td>
+<td>Mon-Fri 07:30 – 18:00 / Sat 10:00 – 16:00 / Sun Closed</td>
+<td>Convenience store</td>
+</tr>
+
+<tr>
+<td>Aid Station</td>
+<td>Building 235</td>
+<td>24 Hours</td>
+<td>Available for sickness</td>
+</tr>
+
+<tr>
+<td>Chaplain</td>
+<td>On Call</td>
+<td>On Call</td>
+<td>Spiritual support</td>
+</tr>
+
+<tr>
+<td>Behavioral Health</td>
+<td>Building 235</td>
+<td>24 Hours</td>
+<td>Mental health support</td>
+</tr>
+
+<tr>
+<td>USO</td>
+<td>Building 235</td>
+<td>24 Hours</td>
+<td>Provide comfort, entertainment, and resources</td>
+</tr>
+
+<tr>
+<td>Defender Dining Facility</td>
+<td>Near Building 238</td>
+<td>See posted hours</td>
+<td>Dining facility</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="section">
+
 <h2>Important Contacts</h2>
-<p>DPC Reception</p>
-<p>+49 XXX XXX XXXX</p>
-<p>Emergency</p>
+
+<p><strong>DPC Reception</strong></p>
+<p>USO Front Desk – Building 235</p>
+
+<p><strong>Emergency</strong></p>
 <p>112</p>
+
 </div>
+
 
 </body>
 </html>
