@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>DPC Mayor Cell Information</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+background:#2c466b;
+color:white;
+padding:20px 0;
+text-align:center;
+position:relative;
+}
+
+.logo{
+position:absolute;
+left:25px;
+top:15px;
+height:55px;
+}
+
+header h1{
+margin:0;
+font-size:30px;
+}
+
+header p{
+margin:4px 0;
+font-size:14px;
+}
+
+/* MENU */
+.menu{
+display:flex;
+justify-content:center;
+gap:15px;
+padding:15px;
+background:#e6e6e6;
+position:sticky;
+top:0;
+z-index:1000;
+flex-wrap:wrap;
+}
+
+.menu a{
+background:#2c466b;
+color:white;
+padding:10px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.menu a:hover{
+background:#1f3a5f;
+}
+
+/* CONTENT */
+.section{
+background:white;
+margin:30px auto;
+padding:30px;
+border-radius:12px;
+box-shadow:0 3px 6px rgba(0,0,0,0.15);
+max-width:1000px;
+}
+
+.section h2{
+text-align:center;
+color:#2c466b;
+margin-top:0;
+}
+
+.section p{
+line-height:1.6;
+}
+
+.section ul{
+margin-left:20px;
+line-height:1.6;
+}
+
+/* NOTICE BOX */
+.notice{
+background:#fff7cc;
+border-left:6px solid #ffcc00;
+padding:15px;
+margin-bottom:25px;
+}
+
+/* QUICK BUTTONS */
+.quick-buttons{
+text-align:center;
+}
+
+.quick-buttons button{
+background:#2c466b;
+color:white;
+padding:12px 20px;
+border-radius:8px;
+border:none;
+margin:5px;
+font-weight:bold;
+cursor:pointer;
+font-size:15px;
+}
+
+.quick-buttons button:hover{
+background:#1f3a5f;
+}
+
+/* HIDDEN BRIEFS */
+.brief-section{
+display:none;
+}
+
+/* FOOTER */
+.footer{
+background:#2c466b;
+color:white;
+padding:15px;
+text-align:center;
+margin-top:40px;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+.logo{
+position:static;
+display:block;
+margin:0 auto 10px auto;
+}
+
+header{
+padding-top:25px;
+}
+
+.section{
+margin:15px;
+padding:20px;
+}
+
+.menu{
+justify-content:center;
+}
+
+.menu a{
+padding:10px 14px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+<h1>Mayor Cell Information</h1>
+<p>Deployment Processing Center</p>
+</header>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="transportation.html">Transportation</a>
+<a href="services.html">Services</a>
+</div>
+
+<div class="section">
+<h2>Mayor Cell Welcome</h2>
+
+<div class="notice">
+
+<strong>Good afternoon and Welcome!</strong>
+
+<p>
+PSA for new arrivals: Since Mayor Cell staff of Building 230 (ROC Drill Building)
+do not have cellphones inside the SCIF, please ensure communications are sent
+via WickedGov or come directly to the Mayor Cell.
+</p>
+
+<strong>Duty OIC Schedule</strong>
+<ul>
+<li>CPT Kevin Quinde Jeton – 2200–0600</li>
+<li>CPT Tanika (Nikki) C. Watson – 1400–2200</li>
+<li>CPT Elizabeth Rodriguez – 0600–1400</li>
+</ul>
+
+<strong>NCOIC Schedule</strong>
+<ul>
+<li>MSG Moise, Benita – 0600–1400</li>
+<li>SFC Janvier, Jude – 1400–2200</li>
+<li>SSG Harvey, Jaquan – 2200–0600</li>
+</ul>
+
+<strong>Mission Leadership</strong>
+<ul>
+<li>LTC Dannenberg, Thomas – Battalion Commander</li>
+<li>CSM Blas, Raymond – Battalion Command Sergeant Major</li>
+</ul>
+
+<p>
+You may also call the DSN from a cell phone:
+<strong>+49 611 1435230064</strong>
+</p>
+
+<p>
+If you need anything during your stay, the three OICs work here <strong>7 days a week</strong>.
+Our NCOICs alternate weekend coverage with additional support staff.
+You may also see our Commander, <strong>LTC D</strong>, frequently.
+Please contact the Mayor Cell first as he maintains a very busy schedule.
+</p>
+
+<p>
+Thank you for your continued efforts and cooperation while we support
+your operations during your stay.
+</p>
+
+</div>
+</div>
+
+<div class="section quick-buttons">
+<button onclick="showBrief('soldierbrief')">Soldier Brief</button>
+<button onclick="showBrief('civilianbrief')">Civilian Brief</button>
+<button onclick="hideBriefs()">Hide Briefs</button>
+</div>
+
+<div class="section brief-section" id="soldierbrief">
+<h2>Soldier Brief</h2>
+
+<h3>1. Area of Operations &amp; Restrictions</h3>
+<p>
+While you are in transit, all Service Members are restricted to the footprint of Rhine
+Ordnance Barracks. You are not authorized to leave this installation for the duration of
+your stay. We have ensured that the necessary amenities are available to you here on-post
+to make your stay as comfortable as possible.
+</p>
+
+<h3>2. Standards &amp; General Order 1</h3>
+<p>
+Be advised that General Order Number 1 is in full effect during your time at the DPC.
+This means there is strictly no alcohol consumption allowed.
+</p>
+
+<h3>3. Medical Emergencies &amp; Procedures</h3>
+<p>
+In the event of a medical emergency, dial <strong>112</strong>. A Local National ambulance will
+respond to provide services and transport.
+</p>
+
+<ul>
+<li><strong>Crucial Instruction:</strong> You are to be transported to <strong>Landstuhl Regional Medical Center (LRMC)</strong>. Our policy is that Soldiers will not be treated at German civilian hospitals.</li>
+<li>If ambulance staff asks for a destination or attempts to transport you elsewhere, clearly state: <strong>"Landstuhl Regional Medical Center."</strong></li>
+<li>Ensure your peers and leadership are aware of this requirement.</li>
+</ul>
+
+<h3>4. Leadership Coordination (Mayor Cell)</h3>
+<p>
+For Commanders, First Sergeants, and Unit Leaders: The Mayor Cell is located in
+<strong>Building 230</strong>. This is your primary hub for facilities information, billeting issues,
+or administrative support.
+</p>
+
+<h3>5. Personnel Accountability</h3>
+<p>
+We require a Personnel Status (PERSTAT) report twice daily by <strong>0600</strong> and <strong>1800</strong>.
+Unit leadership, immediately following this brief, please link up with the Mayor Cell team.
+</p>
+
+<ul>
+<li>We need your primary contact information.</li>
+<li>We will provide you with the specific format for your daily data submission.</li>
+</ul>
+
+<h3>6. Commercial Air Travel &amp; Security Compliance</h3>
+<p>
+Your upcoming travel is via commercial aircraft. This is not a military flight, and you must
+treat it as such. You will be processed through a standard civilian airport and must adhere
+to all international and host nation security regulations without exception.
+</p>
+
+<h3>A. Security Screening &amp; Prohibited Items</h3>
+<p>
+You will undergo a full security screening. To prevent delays and confiscation of property,
+you must ensure your carry-on and checked luggage comply with all rules.
+</p>
+
+<ul>
+<li><strong>No Weapons, Components, or Ammunition:</strong> There is a zero-tolerance policy for weapons of any kind. This includes, but is not limited to:</li>
+<ul>
+<li>Personal knives or multi-tools with blades</li>
+<li>Firearms and firearm components</li>
+<li>Magazines, ammunition, or empty casings</li>
+</ul>
+
+<li><strong>Liquids, Gels, &amp; Aerosols (Carry-On):</strong> All liquids must follow the international 3-1-1 rule. Containers must be 3.4 ounces (100ml) or smaller, and all must fit inside a single, clear, 1-quart sized zip-top bag.</li>
+
+<li><strong>Electronics:</strong> Be prepared to remove all large electronics, such as laptops, tablets, and gaming devices, from your bags and place them in a separate bin for X-ray screening.</li>
+
+<li><strong>Flammable Materials &amp; Sharp Objects:</strong> Items such as lighters, scissors, and other potential hazards are strictly controlled and prohibited. If you are unsure about an item, pack it in your checked luggage or do not bring it at all.</li>
+</ul>
+
+<h3>B. Conduct &amp; Professionalism</h3>
+<ul>
+<li>Maintain a low profile and professional bearing at all times.</li>
+<li>Remember, you are ambassadors of the U.S. Armed Forces and continuously represent the United States of America to our Host Nation partners and civilians.</li>
+<li>Comply immediately and courteously with all instructions from airline staff, airport security personnel, and flight crews.</li>
+</ul>
+</div>
+
+<div class="section brief-section" id="civilianbrief">
+<h2>Civilian Brief</h2>
+
+<h3>1. Purpose of the Mayor Cell</h3>
+<p>The Mayor Cell is your primary point of contact during your stay. Our mission is to:</p>
+<ul>
+<li>Organize and manage your movement through the DPC.</li>
+<li>Maintain accountability of all personnel.</li>
+<li>Connect you with any necessary personnel or support services.</li>
+<li>Coordinate and organize your transportation to the airport for onward travel.</li>
+</ul>
+
+<h3>2. Accountability &amp; Check-In</h3>
+<p>
+To ensure we can support you effectively, we require all personnel to sign in with the Mayor Cell.
+Immediately following this brief, please see a member of our team to provide your contact information
+and a primary point of contact (POC) for your group or organization. The Mayor Cell is located in
+<strong>Building 230</strong> for any administrative needs.
+</p>
+
+<h3>3. Billeting &amp; Facilities</h3>
+<ul>
+<li><strong>Billeting:</strong> Your assigned lodging is in <strong>Building 231</strong>.</li>
+<li><strong>Restrooms:</strong> Bathroom facilities are located directly across from Building 231.</li>
+<li><strong>Dining:</strong> The Dining Facility (DFAC) and the post Shoppette are available for your use.</li>
+<li><strong>Area of Operations:</strong> While you are here, all personnel are restricted to the footprint of Rhine Ordnance Barracks. You are not authorized to leave the installation for the duration of your stay.</li>
+</ul>
+
+<h3>4. Medical &amp; Emergency Services</h3>
+<ul>
+<li><strong>Medical Aid Station:</strong> For non-emergency medical needs, a Medical Aid Station is available 24/7 in <strong>Building 235</strong>.</li>
+<li><strong>Behavioral Health:</strong> Behavioral health services are also available should you need them.</li>
+<li><strong>Medical Emergencies:</strong> In the event of a serious medical emergency, <strong>dial 112</strong>. A local ambulance will respond to provide immediate services.</li>
+</ul>
+
+<h3>5. Standards &amp; Conduct</h3>
+<ul>
+<li><strong>Alcohol:</strong> Please be advised that General Order Number 1 is in effect for all personnel at the DPC, which prohibits the consumption of alcoholic beverages.</li>
+<li><strong>Professionalism:</strong> We ask that you maintain a professional bearing at all times. You are representing the U.S. Government to our Host Nation partners.</li>
+</ul>
+
+<h3>6. Operational Security (OPSEC)</h3>
+<ul>
+<li><strong>Social Media:</strong> Do not post any details about your current location, travel itineraries, timelines, or mission-related activities on any social media platforms.</li>
+<li><strong>Awareness:</strong> Be mindful of your conversations in public spaces, as you never know who might be listening.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Unit Point of Contact Guidance</h2>
+
+<p>
+Unit leadership or designated representatives should coordinate directly
+with the Mayor Cell to ensure accountability and transportation coordination.
+</p>
+
+<ul>
+<li>Ensure your personnel sign in upon arrival.</li>
+<li>Provide updated personnel rosters if changes occur.</li>
+<li>Maintain communication with the Mayor Cell regarding movement timelines.</li>
+<li>Coordinate transportation and flight timelines through the Mayor Cell.</li>
+</ul>
+</div>
+
+<div class="footer">
+Deployment Processing Center Information Portal
+</div>
+
+<script>
+function showBrief(id){
+var briefs = document.querySelectorAll('.brief-section');
+briefs.forEach(function(section){
+section.style.display = 'none';
+});
+
+document.getElementById(id).style.display = 'block';
+document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function hideBriefs(){
+var briefs = document.querySelectorAll('.brief-section');
+briefs.forEach(function(section){
+section.style.display = 'none';
+});
+}
+</script>
+
+</body>
+</html>
