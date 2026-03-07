@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DPC Transportation</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#eef2f6;
+    color:#222;
+}
+
+/* HEADER */
+header{
+    background:#1f3a5f;
+    color:white;
+    padding:18px 25px;
+    display:grid;
+    grid-template-columns:80px 1fr 80px;
+    align-items:center;
+}
+
+header img{
+    height:55px;
+}
+
+.header-text h1{
+    margin:0;
+    font-size:26px;
+}
+
+.header-text p{
+    margin:0;
+    font-size:13px;
+    opacity:0.9;
+}
+
+/* NAV MENU */
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:14px;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.menu a{
+    background:#1f3a5f;
+    color:white;
+    padding:10px 18px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.menu a:hover{
+    background:#2f5f9c;
+}
+
+/* HERO */
+.hero{
+    background:white;
+    margin:25px auto 10px auto;
+    padding:30px;
+    max-width:1200px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.hero h2{
+    margin-top:0;
+    color:#1f3a5f;
+    font-size:26px;
+}
+
+.hero p{
+    font-size:15px;
+    color:#555;
+}
+
+/* TRANSPORT CARDS */
+
+.transport-grid{
+max-width:1200px;
+margin:30px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:22px;
+padding:0 20px;
+}
+
+.transport-card{
+background:white;
+padding:22px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.15);
+border-top:5px solid #1f3a5f;
+}
+
+.transport-card h3{
+margin-top:0;
+color:#1f3a5f;
+font-size:20px;
+}
+
+.transport-card ul{
+padding-left:18px;
+line-height:1.6;
+}
+
+.map-button{
+display:inline-block;
+margin-top:10px;
+background:#2e7d32;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.map-button:hover{
+background:#256628;
+}
+
+/* SCHEDULE SECTION */
+.schedule-section{
+    max-width:1200px;
+    margin:30px auto;
+    background:white;
+    padding:30px 20px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.schedule-title{
+    font-size:28px;
+    color:#1f3a5f;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.legend{
+    margin-bottom:28px;
+    font-size:15px;
+    text-align:center;
+}
+
+.legend span{
+    display:inline-flex;
+    align-items:center;
+    margin:0 10px;
+}
+
+.dot{
+    height:16px;
+    width:16px;
+    border-radius:50%;
+    display:inline-block;
+    margin-right:8px;
+    border:1px solid #222;
+}
+
+.green{ background:#2ecc28; }
+.yellow{ background:#f1dd17; }
+.red{ background:#ff2b2b; }
+
+.schedule-subtitle{
+    font-weight:bold;
+    font-size:22px;
+    margin:12px 0 18px 0;
+    color:#000;
+}
+
+/* TABLE */
+.table-wrap{
+    overflow-x:auto;
+}
+
+.schedule-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+    text-align:left;
+}
+
+.schedule-table th{
+    background:#1f3a5f;
+    color:white;
+    padding:12px 10px;
+    font-size:16px;
+    border:1px solid #d0d0d0;
+}
+
+.schedule-table td{
+    padding:11px 10px;
+    border:1px solid #d0d0d0;
+    font-size:15px;
+}
+
+.schedule-table .troop-stop{
+    background:#cfe0d1;
+}
+
+.schedule-table .break-row{
+    background:#efd0d2;
+    font-weight:bold;
+}
+
+.schedule-table .lunch-row{
+    background:#efe3b8;
+    font-weight:bold;
+}
+
+.schedule-table .center-row{
+    text-align:center;
+}
+
+/* TAXI SECTION */
+.taxi-section{
+    max-width:1200px;
+    margin:30px auto;
+    background:white;
+    padding:25px 20px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.taxi-section h2{
+    color:#1f3a5f;
+    margin-top:0;
+    font-size:26px;
+}
+
+.taxi-table-wrap{
+    overflow-x:auto;
+}
+
+.taxi-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.taxi-table th{
+    background:#1f3a5f;
+    color:white;
+    padding:12px 10px;
+    border:1px solid #d0d0d0;
+    text-align:left;
+}
+
+.taxi-table td{
+    padding:14px 10px;
+    border:1px solid #d0d0d0;
+    text-align:left;
+    vertical-align:top;
+}
+
+.taxi-table a{
+    color:#0047ff;
+}
+
+.taxi-table tr:nth-child(even){
+    background:#f3f5f8;
+}
+
+/* CONTACT BOX */
+.contact-box{
+    background:#1f3a5f;
+    color:white;
+    padding:22px;
+    border-radius:10px;
+    margin:30px auto;
+    max-width:1200px;
+    text-align:center;
+}
+
+.contact-box h3{
+    margin-top:0;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    font-size:12px;
+    color:gray;
+    padding:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div>
+<img src="logo.png" alt="Unit Logo">
+</div>
+
+<div class="header-text" style="text-align:center">
+<h1>Deployment Processing Center</h1>
+<p>Supported by 21st Theater Sustainment Command</p>
+<p>Transportation Information</p>
+</div>
+
+<div></div>
+</header>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="mayorcell.html">Mayor Cell</a>
+<a href="services.html">Services</a>
+</div>
+
+<div class="hero">
+<h2>DPC Transportation Information</h2>
+<p>This page provides shuttle schedules, taxi services, and transportation resources for personnel arriving at the Deployment Processing Center.</p>
+</div>
+
+<!-- TRANSPORTATION CARDS -->
+
+<div class="transport-grid">
+
+<div class="transport-card">
+<h3>✈ Frankfurt International Airport</h3>
+<ul>
+<li>Major arrival airport for international flights</li>
+<li>Taxi or train available to Kaiserslautern</li>
+<li>Travel time: 1–1.5 hours</li>
+</ul>
+<a class="map-button" href="https://maps.google.com/?q=Frankfurt+Airport" target="_blank">Open Map</a>
+</div>
+
+<div class="transport-card">
+<h3>🛫 Ramstein Air Base</h3>
+<ul>
+<li>Closest military airfield</li>
+<li>Located approx. 20 minutes from DPC</li>
+<li>Taxi service available outside terminal</li>
+</ul>
+<a class="map-button" href="https://maps.google.com/?q=Ramstein+Air+Base" target="_blank">Open Map</a>
+</div>
+
+<div class="transport-card">
+<h3>🚕 Taxi Services</h3>
+<ul>
+<li>Available outside airport terminals</li>
+<li>Typical fare to Kaiserslautern: €50–€90</li>
+<li>Ask for receipt for reimbursement</li>
+</ul>
+</div>
+
+<div class="transport-card">
+<h3>🚆 Train Transportation</h3>
+<ul>
+<li>Take train from Frankfurt Airport to Kaiserslautern HBF</li>
+<li>ICE or Regional trains available</li>
+<li>Travel time approx. 1 hour</li>
+</ul>
+<a class="map-button" href="https://maps.google.com/?q=Kaiserslautern+HBF" target="_blank">View Station</a>
+</div>
+
+<div class="transport-card">
+<h3>🚌 Local Bus Service</h3>
+<ul>
+<li>Public buses operate throughout Kaiserslautern</li>
+<li>Bus stops located near train station</li>
+<li>Taxi recommended for faster travel</li>
+</ul>
+</div>
+
+<div class="transport-card">
+<h3>📍 Final Destination</h3>
+<ul>
+<li>Deployment Processing Center</li>
+<li>ROB Kaiserslautern</li>
+<li>Building 235 Reception</li>
+</ul>
+<a class="map-button" href="https://maps.google.com/?q=49.4386,7.6000" target="_blank">Navigate to DPC</a>
+</div>
+
+</div>
+
+<!-- YOUR ORIGINAL SCHEDULE CODE CONTINUES HERE (UNCHANGED) -->
+
+
+<div class="schedule-section">
+    <div class="schedule-title">Shuttle Schedule</div>
+
+    <div class="legend">
+        <span><span class="dot green"></span>Troop Stop</span>
+        <span><span class="dot yellow"></span>Lunch</span>
+        <span><span class="dot red"></span>Break</span>
+    </div>
+
+    <div class="schedule-subtitle">Shuttle #1 – KL East</div>
+
+    <div class="table-wrap">
+        <table class="schedule-table">
+            <tr>
+                <th>ARR</th>
+                <th>DEP</th>
+                <th>Installation</th>
+                <th>Bldg</th>
+                <th>Bus Stop</th>
+            </tr>
+
+            <tr class="troop-stop">
+                <td>START</td>
+                <td>0730</td>
+                <td>Sembach</td>
+                <td>220</td>
+                <td>Troop Billets</td>
+            </tr>
+
+            <tr class="troop-stop">
+                <td>0755</td>
+                <td>0800</td>
+                <td>ROB</td>
+                <td>273</td>
+                <td>Troop Billets / Java Café</td>
+            </tr>
+
+            <tr>
+                <td>0825</td>
+                <td>0850</td>
+                <td>Kleber</td>
+                <td>3206</td>
+                <td>DFAC Clock Tower Café</td>
+            </tr>
+
+            <tr>
+                <td>0855</td>
+                <td>-</td>
+                <td>Panzer</td>
+                <td>3005</td>
+                <td>Work Site</td>
+            </tr>
+
+            <tr class="break-row">
+                <td>-</td>
+                <td>1000</td>
+                <td colspan="3">BREAK – Daenner TMP</td>
+            </tr>
+
+            <tr>
+                <td>1025</td>
+                <td>1030</td>
+                <td>ROB</td>
+                <td>273</td>
+                <td>Troop Billets</td>
+            </tr>
+
+            <tr>
+                <td>1050</td>
+                <td>1055</td>
+                <td>Daenner</td>
+                <td>3102</td>
+                <td>Troop Billets</td>
+            </tr>
+
+            <tr>
+                <td>1105</td>
+                <td>1110</td>
+                <td>Kleber</td>
+                <td>3206</td>
+                <td>DFAC Clock Tower Café</td>
+            </tr>
+
+            <tr>
+                <td>1115</td>
+                <td>1130</td>
+                <td>Panzer</td>
+                <td>3005</td>
+                <td>Work Site</td>
+            </tr>
+
+            <tr>
+                <td>1140</td>
+                <td>-</td>
+                <td>Kleber</td>
+                <td>3206</td>
+                <td>DFAC Clock Tower Café</td>
+            </tr>
+
+            <tr class="lunch-row">
+                <td>-</td>
+                <td>1235</td>
+                <td colspan="3">LUNCH – Daenner TMP</td>
+            </tr>
+
+            <tr>
+                <td>1240</td>
+                <td>1245</td>
+                <td>Daenner</td>
+                <td>3102</td>
+                <td>Troop Billets</td>
+            </tr>
+
+            <tr>
+                <td>1250</td>
+                <td>1255</td>
+                <td>Panzer</td>
+                <td>3005</td>
+                <td>Work Site</td>
+            </tr>
+
+            <tr>
+                <td>1320</td>
+                <td>1325</td>
+                <td>ROB</td>
+                <td>273</td>
+                <td>Troop Billets</td>
+            </tr>
+
+            <tr>
+                <td>1350</td>
+                <td>-</td>
+                <td>Sembach</td>
+                <td>220</td>
+                <td>Troop Billets</td>
+            </tr>
+
+            <tr class="break-row">
+                <td>-</td>
+                <td>-</td>
+                <td colspan="3">BREAK – Daenner TMP</td>
+            </tr>
+
+            <tr>
+                <td>-</td>
+                <td>1440</td>
+                <td>Kleber</td>
+                <td>3206</td>
+                <td>DFAC Clock Tower Café</td>
+            </tr>
+
+            <tr>
+                <td>1445</td>
+                <td>1450</td>
+                <td>Daenner</td>
+                <td>3102</td>
+                <td>Troop Billets</td>
+            </tr>
+
+            <tr class="troop-stop">
+                <td>1510</td>
+                <td>1515</td>
+                <td>ROB</td>
+                <td>273</td>
+                <td>Troop Billets / Java Café</td>
+            </tr>
+
+            <tr>
+                <td>1540</td>
+                <td>1630</td>
+                <td>Panzer</td>
+                <td>3005</td>
+                <td>Work Site</td>
+            </tr>
+
+            <tr>
+                <td>1635</td>
+                <td>END</td>
+                <td>Kleber</td>
+                <td>3206</td>
+                <td>DFAC</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="schedule-subtitle" style="margin-top:36px;">Shuttle #2 – KL West</div>
+
+    <div class="table-wrap">
+        <table class="schedule-table">
+            <tr>
+                <th>ARR</th>
+                <th>DEP</th>
+                <th>Installation</th>
+                <th>Bldg</th>
+                <th>Bus Stop</th>
+            </tr>
+
+            <tr class="troop-stop">
+                <td>START</td>
+                <td>0820</td>
+                <td>ROB</td>
+                <td>273</td>
+                <td>Troop Billets / Java Café</td>
+            </tr>
+
+            <tr>
+                <td>0900</td>
+                <td>0905</td>
+                <td>LRMC</td>
+                <td>3792</td>
+                <td>Hospital Bus Stop 3793</td>
+            </tr>
+
+            <tr>
+                <td>0930</td>
+                <td>0935</td>
+                <td>Ramstein</td>
+                <td>3333</td>
+                <td>KMCC Terminal Bus Stop 3303</td>
+            </tr>
+
+            <tr>
+                <td>1000</td>
+                <td>-</td>
+                <td>Pulaski</td>
+                <td>2053</td>
+                <td>Commissary/Housing Office</td>
+            </tr>
+
+            <tr class="break-row">
+                <td colspan="5" class="center-row">OTHER DUTIES &nbsp;&nbsp;&nbsp; DAENNER TMP</td>
+            </tr>
+
+            <tr>
+                <td>-</td>
+                <td>1400</td>
+                <td>Pulaski</td>
+                <td>2053</td>
+                <td>Commissary/Housing Office</td>
+            </tr>
+
+            <tr>
+                <td>1420</td>
+                <td>1425</td>
+                <td>Ramstein</td>
+                <td>3333</td>
+                <td>KMCC Terminal Bus Stop 3303</td>
+            </tr>
+
+            <tr>
+                <td>1445</td>
+                <td>1450</td>
+                <td>LRMC</td>
+                <td>3792</td>
+                <td>Hospital Bus Stop 3793</td>
+            </tr>
+
+            <tr class="troop-stop">
+                <td>1515</td>
+                <td>1520</td>
+                <td>ROB</td>
+                <td>273</td>
+                <td>Troop Billets / Java Café</td>
+            </tr>
+
+            <tr>
+                <td>1545</td>
+                <td>END</td>
+                <td>Sembach</td>
+                <td>220</td>
+                <td>Troop Billets</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="taxi-section">
+    <h2>Taxi / Ride Services</h2>
+
+    <div class="taxi-table-wrap">
+        <table class="taxi-table">
+            <tr>
+                <th>Service</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>Notes</th>
+            </tr>
+
+            <tr>
+                <td>Yellow Cab Ramstein</td>
+                <td>
+                    <a href="tel:+4963717321783">+49 6371 7321783</a><br>
+                    <a href="tel:+4917664998292">+49 176 64998292</a>
+                </td>
+                <td><a href="https://www.yellow-cab-ramstein.com" target="_blank">Visit Website</a></td>
+                <td>Taxi and airport shuttle service</td>
+            </tr>
+
+            <tr>
+                <td>NYCAB Ramstein</td>
+                <td>Book Online</td>
+                <td><a href="https://www.nycab.de" target="_blank">Visit Website</a></td>
+                <td>Pickup on/off base within KMC</td>
+            </tr>
+
+            <tr>
+                <td>Uber</td>
+                <td>Use Uber App</td>
+                <td><a href="https://www.uber.com" target="_blank">Open Uber</a></td>
+                <td>Driver availability varies</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="contact-box">
+    <h3>Transportation Assistance</h3>
+    If you experience travel issues or need help reaching the DPC, contact reception.
+    <br><br>
+    DSN: 528-3300
+</div>
+
+<div class="footer">
+    Deployment Processing Center Information Portal
+</div>
+
+</body>
+</html>
