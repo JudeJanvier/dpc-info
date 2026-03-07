@@ -25,7 +25,6 @@ grid-template-columns:80px 1fr 80px;
 align-items:center;
 }
 
-
 header img{
 height:55px;
 }
@@ -92,7 +91,7 @@ font-size:15px;
 color:#555;
 }
 
-/* MAIN ALERT (General Order) */
+/* ALERT BOX */
 
 .alert-box{
 max-width:1200px;
@@ -106,44 +105,108 @@ box-shadow:0 2px 6px rgba(0,0,0,0.15);
 text-align:center;
 }
 
-.alert-box ul{
-list-style-position:inside;
-padding-left:0;
-margin-top:10px;
-text-align:center;
-}
-
 .alert-title{
 font-weight:bold;
-margin-bottom:8px;
+font-size:17px;
+margin-bottom:10px;
+}
+
+/* SECTION TITLE */
+
+.section-title{
+max-width:1200px;
+margin:40px auto 10px auto;
+text-align:center;
+padding:0 20px;
+}
+
+.section-title h2{
+margin:0;
+font-size:28px;
+color:#1f3a5f;
+}
+
+.section-title p{
+margin-top:8px;
+color:#555;
+font-size:15px;
 }
 
 /* INFORMATION GRID */
 
 .info-grid{
 max-width:1200px;
-margin:20px auto;
+margin:25px auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
+gap:25px;
 padding:0 20px;
 }
 
+/* CARD STYLE */
+
 .card{
 background:white;
-padding:22px;
-border-radius:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.15);
+padding:24px;
+border-radius:12px;
+box-shadow:0 6px 14px rgba(0,0,0,0.08);
+transition:0.25s;
+border-top:5px solid #1f3a5f;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 18px rgba(0,0,0,0.12);
 }
 
 .card h3{
 margin-top:0;
+margin-bottom:10px;
+font-size:18px;
 color:#1f3a5f;
 }
 
 .card ul{
 padding-left:18px;
 line-height:1.6;
+color:#444;
+}
+
+.card li{
+margin-bottom:6px;
+}
+
+/* MAP SECTION */
+
+.map-box{
+max-width:1200px;
+margin:40px auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+.map-box h2{
+color:#1f3a5f;
+margin-top:0;
+}
+
+.map-box img{
+width:100%;
+border-radius:8px;
+}
+
+.map-button{
+background:#2e7d32;
+color:white;
+padding:14px 22px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+margin-top:15px;
 }
 
 /* CONTACT BOX */
@@ -160,15 +223,12 @@ text-align:center;
 
 .contact-box h3{
 margin-top:0;
-text-align:center;
 }
 
 .contact-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-justify-items:center;
-text-align:center;
 }
 
 /* FOOTER */
@@ -180,6 +240,56 @@ color:gray;
 padding:25px;
 }
 
+/* MOBILE */
+
+@media (max-width:768px){
+
+header{
+grid-template-columns:60px 1fr;
+text-align:center;
+}
+
+header img{
+height:45px;
+}
+
+.menu{
+flex-wrap:wrap;
+gap:8px;
+}
+
+.menu a{
+padding:8px 12px;
+font-size:14px;
+}
+
+.hero{
+margin:15px;
+padding:20px;
+}
+
+.hero h2{
+font-size:22px;
+}
+
+.alert-box{
+margin:15px;
+}
+
+.info-grid{
+grid-template-columns:1fr;
+}
+
+.card{
+padding:20px;
+}
+
+.section-title h2{
+font-size:24px;
+}
+
+}
+
 </style>
 
 </head>
@@ -188,7 +298,7 @@ padding:25px;
 
 <header>
 
-<div style="text-align:left">
+<div>
 <img src="logo.png" alt="Unit Logo">
 </div>
 
@@ -201,173 +311,137 @@ padding:25px;
 
 </header>
 
-
 <div class="menu">
 <a href="mayorcell.html">Mayor Cell</a>
 <a href="transportation.html">Transportation</a>
 <a href="services.html">Services</a>
 </div>
 
-
 <div class="hero">
 <h2>Welcome to the Deployment Processing Center</h2>
 <p>This portal provides important arrival information, facility guidance, transportation resources, and support services for personnel assigned to the DPC.</p>
 </div>
 
-
 <div class="alert-box">
 
 <div class="alert-title">General Order #1 – Alcohol Policy</div>
 
-Alcohol is strictly prohibited for all personnel assigned to the DPC, regardless of branch of service.
+Alcohol is strictly prohibited for all personnel assigned to the DPC.
 
-Alcohol consumption is not allowed on or off the installation during your stay.
+Consumption is not allowed on or off the installation during your stay.
 
 Possession of alcohol is also prohibited.
 
 <br><br>
 
-This policy follows <b>General Order #1 signed by the Commanding General, 21st TSC</b>.
+<b>General Order #1 signed by the Commanding General, 21st TSC</b>
 
 <br><br>
 
 If staff smell alcohol or witness consumption they will notify:
 
-<ul>
+<ul style="list-style-position:inside;padding-left:0;">
 <li>Military Police</li>
 <li>Your Chain of Command</li>
 </ul>
 
 </div>
 
+<div class="section-title">
+<h2>Information Center</h2>
+<p>Important guidance and facility information for all personnel staying at the Deployment Processing Center.</p>
+</div>
 
 <div class="info-grid">
 
 <div class="card">
-<h3>General Rules & Conduct</h3>
+<h3>🪖 General Rules & Conduct</h3>
 <ul>
 <li>Follow all instructions given by DPC staff</li>
 <li>Soldiers must be properly dressed at all times</li>
-<li>Headphones required when using personal electronic devices</li>
+<li>Headphones required when using electronic devices</li>
 <li>Clean shared areas after each use</li>
 <li>Clean your assigned bunk before leaving</li>
 <li>Quiet hours: <b>2200 – 0600</b></li>
 </ul>
 </div>
 
-
 <div class="card">
-<h3>Billeting & Movement</h3>
+<h3>🛏 Billeting & Movement</h3>
 <ul>
-<li>Soldiers must sleep only in assigned areas</li>
-<li>Male and female sleeping areas are separated</li>
-<li>Sign out on the Break Roster when leaving</li>
+<li>Sleep only in assigned areas</li>
+<li>Male and female areas are separated</li>
+<li>Sign out on Break Roster when leaving</li>
 <li>Sign back in when returning</li>
-<li>If returning due to flight delay report to reception</li>
+<li>Report flight delays to reception</li>
 </ul>
 </div>
 
-
 <div class="card">
-<h3>Restrooms & Showers</h3>
+<h3>🚿 Restrooms & Showers</h3>
 <ul>
-<li>PHA #1 (Building 231) restrooms located in Buildings <b>241 and 242</b></li>
+<li>PHA #1 restrooms located in Buildings <b>241 & 242</b></li>
 <li>Other PHAs use container shower units</li>
-<li>Use restrooms assigned to your gender listed in <b>DEERS</b></li>
+<li>Use restrooms assigned in <b>DEERS</b></li>
 </ul>
 </div>
 
-
 <div class="card">
-<h3>Laundry Facility</h3>
+<h3>🧺 Laundry Facility</h3>
 <ul>
 <li>Located at <b>Building 268</b></li>
-<li>Washers, dryers and detergent are free</li>
-<li>Laundry closed <b>2100 – 0730</b></li>
+<li>Washers, dryers and detergent free</li>
+<li>Closed <b>2100 – 0730</b></li>
 </ul>
 </div>
 
-
 <div class="card">
-<h3>USO Center</h3>
+<h3>🎮 USO Center</h3>
 <ul>
 <li>Located in <b>Building 235</b></li>
 <li>Open <b>24/7</b></li>
 <li>TV, Ping Pong, Pool Table</li>
-<li>Games, Snacks and Coffee</li>
+<li>Games, snacks and coffee</li>
 </ul>
 </div>
 
-
 <div class="card">
-<h3>Safety Information</h3>
+<h3>🚑 Safety Information</h3>
 <ul>
-<li>First Aid Kits located in all buildings</li>
-<li>Fire extinguishers located at exits and sleeping cubes</li>
-<li>Emergency Rally Point: <b>Building 167 – Wash Rack</b></li>
-<li>Report all accidents or incidents to DPC staff</li>
+<li>First Aid Kits in all buildings</li>
+<li>Fire extinguishers at exits</li>
+<li>Emergency Rally Point: <b>Building 167</b></li>
+<li>Report incidents to DPC staff</li>
 </ul>
 </div>
 
-
 <div class="card">
-<h3>Smoking Policy</h3>
+<h3>🚭 Smoking Policy</h3>
 <ul>
 <li>PHA buildings are tobacco free</li>
-<li>No smoking within <b>50 feet</b> of buildings</li>
-<li>Smoking allowed only at the gazebo near the restrooms</li>
+<li>No smoking within <b>50 feet</b></li>
+<li>Smoking allowed at gazebo</li>
 <li>Secure valuables at all times</li>
-<li>Lockers available at Building 231</li>
 </ul>
 </div>
 
 </div>
 
+<div class="map-box">
 
+<h2>DPC Area Map</h2>
 
+<p>Tap a location to open navigation.</p>
 
-<!-- MAP SECTION -->
+<img src="dpc-map.png" alt="DPC Map">
 
-<div style="max-width:1200px;margin:30px auto;background:white;padding:25px;border-radius:10px;box-shadow:0 3px 8px rgba(0,0,0,0.15);text-align:center;">
+<br>
 
-<h2 style="color:#1f3a5f;margin-top:0;">DPC Area Map</h2>
-
-<p style="color:#555;margin-bottom:15px;">Tap a location on the map to open navigation or view it full screen.</p>
-
-<div style="position:relative;display:inline-block;max-width:1100px;width:100%;">
-
-<img src="dpc-map.png" style="width:100%;border-radius:8px;" alt="DPC Area Map" usemap="#dpcmap">
-
-<map name="dpcmap">
-
-<!-- Building 235 / Reception -->
-<area shape="rect" coords="520,260,620,340" href="https://www.google.com/maps/place/49%C2%B026'37.4%22N+7%C2%B041'47.2%22E/@49.4432254,7.6958452,306m/data=!3m1!1e3!4m12!1m7!3m6!1s0x47960d25943cbc61:0x98d270b6b03af765!2sROB+VAT+Office!8m2!3d49.4432563!4d7.6989195!16s%2Fg%2F11gf03c8m_!3m3!8m2!3d49.443733!4d7.696453?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" alt="Building 235">
-
-<!-- Laundry -->
-<area shape="rect" coords="760,320,820,380" href="https://www.google.com/maps/search/?api=1&query=laundry+ROB+Kaiserslautern" target="_blank" alt="Laundry">
-
-<!-- Dining Facility -->
-<area shape="rect" coords="960,260,1100,380" href="https://www.google.com/maps/search/?api=1&query=Defender+Dining+Facility+Ramstein" target="_blank" alt="Dining Facility">
-
-<!-- ROB Gate 1 -->
-<area shape="rect" coords="1020,420,1140,520" href="https://www.google.com/maps/search/?api=1&query=ROB+Gate+1+Kaiserslautern" target="_blank" alt="ROB Gate 1">
-
-<!-- ROB Gate 2 -->
-<area shape="rect" coords="640,40,740,120" href="https://www.google.com/maps/search/?api=1&query=ROB+Gate+2+Kaiserslautern" target="_blank" alt="ROB Gate 2">
-
-</map>
-
-</div>
-
-<br><br>
-
-<a href="https://www.google.com/maps/place/49%C2%B026'37.4%22N+7%C2%B041'47.2%22E/@49.4432254,7.6958452,306m/data=!3m1!1e3!4m12!1m7!3m6!1s0x47960d25943cbc61:0x98d270b6b03af765!2sROB+VAT+Office!8m2!3d49.4432563!4d7.6989195!16s%2Fg%2F11gf03c8m_!3m3!8m2!3d49.443733!4d7.696453?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" 
-style="background:#2e7d32;color:white;padding:14px 22px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;">
+<a class="map-button" href="https://www.google.com/maps/search/?api=1&query=49.4386,7.6000" target="_blank">
 Navigate to Building 235
 </a>
 
 </div>
-
 
 <div class="contact-box">
 
@@ -396,7 +470,6 @@ DSN: 528-3304
 </div>
 
 </div>
-
 
 <div class="footer">
 Deployment Processing Center Information Portal
