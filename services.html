@@ -54,6 +54,7 @@ background:#e6e6e6;
 position:sticky;
 top:0;
 z-index:1000;
+flex-wrap:wrap;
 }
 
 .menu a{
@@ -92,20 +93,19 @@ margin:10px auto 25px auto;
 color:#555;
 }
 
-/* TABLE CONTAINER FOR MOBILE SCROLL */
+/* TABLE MOBILE FIX */
 
-.table-container{
+.table-wrapper{
 width:100%;
 overflow-x:auto;
+-webkit-overflow-scrolling:touch;
 }
-
-/* SERVICES TABLE */
 
 .services-table{
 width:100%;
 border-collapse:collapse;
 margin-top:20px;
-min-width:650px;
+min-width:750px;
 }
 
 .services-table th{
@@ -143,10 +143,6 @@ header{
 padding-top:25px;
 }
 
-.menu{
-flex-wrap:wrap;
-}
-
 .section{
 margin:15px;
 padding:20px;
@@ -179,15 +175,14 @@ margin-top:40px;
 
 </header>
 
-
 <div class="menu">
 
-<a href="#">Home</a>
-<a href="#">Mayor Cell</a>
-<a href="#">Services</a>
+<a href="index.html">Home</a>
+<a href="mayorcell.html">Mayor Cell</a>
+<a href="transportation.html">Transportation</a>
+<a href="services.html">Services</a>
 
 </div>
-
 
 <div class="section">
 
@@ -199,8 +194,11 @@ dining facilities, and other essential resources available to personnel
 arriving at the Deployment Processing Center.
 </p>
 
+<p style="font-size:13px;color:#777;text-align:center;">
+Swipe left/right to view the full table on mobile.
+</p>
 
-<div class="table-container">
+<div class="table-wrapper">
 
 <table class="services-table">
 
@@ -311,11 +309,9 @@ Dinner: 16:30–18:00
 
 </div>
 
-
 <div class="footer">
 Deployment Processing Center Information Portal
 </div>
-
 
 </body>
 
