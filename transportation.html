@@ -21,15 +21,20 @@ header{
     display:grid;
     grid-template-columns:80px 1fr 80px;
     align-items:center;
+
+    position:sticky;
+    top:0;
+    z-index:1100;
 }
 
 header img{
     height:55px;
 }
 
-.header-text h1{
-    margin:0;
-    font-size:26px;
+.header-text p{
+    margin-top:6px;
+    font-size:13px;
+    opacity:0.9;
 }
 
 .header-text p{
@@ -40,30 +45,31 @@ header img{
 
 /* NAV MENU */
 .menu{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    padding:14px;
-    background:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+display:flex;
+justify-content:center;
+gap:15px;
+padding:14px;
+background:white;
+position:sticky;
+top:132px;
+z-index:1000;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
 
 .menu a{
-    background:#1f3a5f;
-    color:white;
-    padding:10px 18px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.2s;
+background:#1f3a5f;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+transition:0.2s;
 }
 
 .menu a:hover{
-    background:#2f5f9c;
+background:#1f3a5f;
 }
+
 
 /* HERO */
 .hero{
@@ -312,14 +318,17 @@ background:#256628;
 <div class="header-text" style="text-align:center">
 <h1>Deployment Processing Center</h1>
 <p>Supported by 21st Theater Sustainment Command</p>
+
 </div>
 
 <div></div>
 </header>
 
 <div class="menu">
+
 <a href="index.html">Home</a>
 <a href="mayorcell.html">Mayor Cell</a>
+<a href="transportation.html">Transportation</a>
 <a href="services.html">Services</a>
 
 </div>
@@ -690,21 +699,21 @@ background:#256628;
                     <a href="tel:+4963717321783">+49 6371 7321783</a><br>
                     <a href="tel:+4917664998292">+49 176 64998292</a>
                 </td>
-                <td><a href="https://www.yellow-cab-ramstein.com" target="_blank">Visit Website</a></td>
+                <td><a href="https://yellowcab-ramstein.com/" target="_blank">Visit Website</a></td>
                 <td>Taxi and airport shuttle service</td>
             </tr>
 
             <tr>
                 <td>NYCAB Ramstein</td>
                 <td>Book Online</td>
-                <td><a href="https://www.nycab.de" target="_blank">Visit Website</a></td>
+                <td><a href="https://nycab-ramstein.de/" target="_blank">Visit Website</a></td>
                 <td>Pickup on/off base within KMC</td>
             </tr>
 
             <tr>
                 <td>Uber</td>
                 <td>Use Uber App</td>
-                <td><a href="https://www.uber.com" target="_blank">Open Uber</a></td>
+                <td><a href="https://www.uber.com/de/en/r/cities/taxi/ramstein-miesenbach-rp-de/" target="_blank">Open Uber</a></td>
                 <td>Driver availability varies</td>
             </tr>
         </table>
@@ -715,7 +724,7 @@ background:#256628;
     <h3>Transportation Assistance</h3>
     If you experience travel issues or need help reaching the DPC, contact reception.
     <br><br>
-    DSN: 528-3300
+    DSN: +49 611 1435283300
 </div>
 
 <div class="footer">
