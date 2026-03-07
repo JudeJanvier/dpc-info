@@ -13,6 +13,7 @@ body{
 font-family: Arial, sans-serif;
 margin:0;
 background:#f4f6f9;
+overflow-x:hidden;
 }
 
 /* HEADER */
@@ -50,6 +51,9 @@ justify-content:center;
 gap:15px;
 padding:15px;
 background:#e6e6e6;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .menu a{
@@ -88,12 +92,20 @@ margin:10px auto 25px auto;
 color:#555;
 }
 
+/* TABLE CONTAINER FOR MOBILE SCROLL */
+
+.table-container{
+width:100%;
+overflow-x:auto;
+}
+
 /* SERVICES TABLE */
 
 .services-table{
 width:100%;
 border-collapse:collapse;
 margin-top:20px;
+min-width:650px;
 }
 
 .services-table th{
@@ -115,6 +127,31 @@ background:#f2f2f2;
 
 .services-table ul{
 margin:6px 0 0 20px;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width:768px){
+
+.logo{
+position:static;
+display:block;
+margin:0 auto 10px auto;
+}
+
+header{
+padding-top:25px;
+}
+
+.menu{
+flex-wrap:wrap;
+}
+
+.section{
+margin:15px;
+padding:20px;
+}
+
 }
 
 /* FOOTER */
@@ -145,9 +182,9 @@ margin-top:40px;
 
 <div class="menu">
 
-<a href="index.html">Home</a>
-<a href="mayorcell.html">Mayor Cell</a>
-<a href="transportation.html">Transportation</a>
+<a href="#">Home</a>
+<a href="#">Mayor Cell</a>
+<a href="#">Services</a>
 
 </div>
 
@@ -162,6 +199,8 @@ dining facilities, and other essential resources available to personnel
 arriving at the Deployment Processing Center.
 </p>
 
+
+<div class="table-container">
 
 <table class="services-table">
 
@@ -267,6 +306,8 @@ Dinner: 16:30–18:00
 </tr>
 
 </table>
+
+</div>
 
 </div>
 
