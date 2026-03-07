@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -23,6 +24,10 @@ padding:18px 25px;
 display:grid;
 grid-template-columns:80px 1fr 80px;
 align-items:center;
+
+position:sticky;
+top:0;
+z-index:1100;
 }
 
 header img{
@@ -35,7 +40,7 @@ font-size:26px;
 }
 
 .header-text p{
-margin:0;
+margin-top:6px;
 font-size:13px;
 opacity:0.9;
 }
@@ -49,7 +54,7 @@ gap:15px;
 padding:14px;
 background:white;
 position:sticky;
-top:0;
+top:90px;
 z-index:1000;
 box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
@@ -196,6 +201,7 @@ margin-top:0;
 .map-box img{
 width:100%;
 border-radius:8px;
+cursor:pointer;
 }
 
 .map-button{
@@ -207,6 +213,38 @@ text-decoration:none;
 font-weight:bold;
 display:inline-block;
 margin-top:15px;
+}
+
+/* FULLSCREEN MAP */
+
+.map-popup{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.map-popup img{
+max-width:95%;
+max-height:95%;
+border-radius:8px;
+box-shadow:0 0 20px black;
+}
+
+.close-map{
+position:absolute;
+top:25px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+font-weight:bold;
 }
 
 /* CONTACT BOX */
@@ -312,6 +350,7 @@ font-size:24px;
 </header>
 
 <div class="menu">
+<a href="index.html">Home</a>
 <a href="mayorcell.html">Mayor Cell</a>
 <a href="transportation.html">Transportation</a>
 <a href="services.html">Services</a>
@@ -431,16 +470,21 @@ If staff smell alcohol or witness consumption they will notify:
 
 <h2>DPC Area Map</h2>
 
-<p>Tap a location to open navigation.</p>
+<p>Tap the map to expand fullscreen.</p>
 
-<img src="dpc-map.png" alt="DPC Map">
+<img src="dpc-map.png" alt="DPC Map" onclick="openMap()">
 
 <br>
 
-<a class="map-button" href="https://www.google.com/maps/search/?api=1&query=49.4386,7.6000" target="_blank">
+<a class="map-button" href="https://www.google.com/maps/place/49%C2%B026'37.2%22N+7%C2%B041'47.3%22E/@49.4436538,7.695127,713m/data=!3m2!1e3!4b1!4m12!1m7!3m6!1s0x47960d28cfe54a5f:0xff2105748155c8d2!2sROB+Java+Cafe!8m2!3d49.4433199!4d7.698876!16s%2Fg%2F11byxgc7dj!3m3!8m2!3d49.443652!4d7.696465?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
 Navigate to Building 235
 </a>
 
+</div>
+
+<div id="mapPopup" class="map-popup">
+<span class="close-map" onclick="closeMap()">&times;</span>
+<img src="dpc-map.png" alt="Full Map">
 </div>
 
 <div class="contact-box">
@@ -474,6 +518,18 @@ DSN: 528-3304
 <div class="footer">
 Deployment Processing Center Information Portal
 </div>
+
+<script>
+
+function openMap(){
+document.getElementById("mapPopup").style.display="flex";
+}
+
+function closeMap(){
+document.getElementById("mapPopup").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
