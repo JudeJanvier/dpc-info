@@ -1,157 +1,398 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>DPC Information Board</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; text-align: center; }
-        header { background: #1f3a5f; color: white; padding: 25px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        header img { height: 70px; }
-        .navbuttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 15px; }
-        .navbuttons a { background: #1f3a5f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        .section { background: white; margin: 15px; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
-        h2 { color: #1f3a5f; }
-        .table-wrapper { overflow-x: auto; margin-top: 10px; }
-        table { width: 100%; border-collapse: collapse; min-width: 650px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background: #1f3a5f; color: white; }
-        .mapimg { width: 100%; border-radius: 10px; margin-top: 10px; }
-        .directionbtn { display: inline-block; margin-top: 15px; background: #2e7d32; color: white; padding: 14px 22px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; }
-        #contacts p { margin: 5px 0; } /* Added for better spacing in contacts */
-    </style>
+<title>DPC Arrival Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#eef2f6;
+color:#222;
+}
+
+/* HEADER */
+
+header{
+background:#1f3a5f;
+color:white;
+padding:18px 25px;
+display:grid;
+grid-template-columns:80px 1fr 80px;
+align-items:center;
+}
+
+
+header img{
+height:55px;
+}
+
+.header-text h1{
+margin:0;
+font-size:26px;
+}
+
+.header-text p{
+margin:0;
+font-size:13px;
+opacity:0.9;
+}
+
+/* NAV MENU */
+
+.menu{
+display:flex;
+justify-content:center;
+gap:15px;
+padding:14px;
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.menu a{
+background:#1f3a5f;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+transition:0.2s;
+}
+
+.menu a:hover{
+background:#2f5f9c;
+}
+
+/* HERO */
+
+.hero{
+background:white;
+margin:25px auto 10px auto;
+padding:30px;
+max-width:1200px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+.hero h2{
+margin-top:0;
+color:#1f3a5f;
+font-size:26px;
+}
+
+.hero p{
+font-size:15px;
+color:#555;
+}
+
+/* MAIN ALERT (General Order) */
+
+.alert-box{
+max-width:1200px;
+margin:20px auto;
+padding:20px;
+background:#fff3cd;
+border-left:6px solid #e0a800;
+border-radius:8px;
+font-size:15px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.alert-title{
+font-weight:bold;
+margin-bottom:8px;
+}
+
+/* INFORMATION GRID */
+
+.info-grid{
+max-width:1200px;
+margin:20px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:0 20px;
+}
+
+.card{
+background:white;
+padding:22px;
+border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.card h3{
+margin-top:0;
+color:#1f3a5f;
+}
+
+.card ul{
+padding-left:18px;
+line-height:1.6;
+}
+
+/* CONTACT BOX */
+
+.contact-box{
+background:#1f3a5f;
+color:white;
+padding:22px;
+border-radius:10px;
+margin:30px auto;
+max-width:1200px;
+text-align:center;
+}
+
+.contact-box h3{
+margin-top:0;
+text-align:center;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+justify-items:center;
+text-align:center;
+}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+font-size:12px;
+color:gray;
+padding:25px;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <header>
-        <img src="logo.png" alt="Logo">
-        <div>
-            <h1>DPC Information Board</h1>
-            <p>Supported by 21st Theater Sustainment Command</p>
-        </div>
-    </header>
+<header>
 
-    <div class="navbuttons">
-        <a href="#map">Map</a>
-        <a href="#services">Services</a>
-        <a href="#contacts">Contacts</a>
-    </div>
+<div style="text-align:left">
+<img src="logo.png" alt="Unit Logo">
+</div>
 
-    <div class="section" id="map">
-        <h2>DPC Area Map</h2>
-        <a href="dpc-map.png" target="_blank">
-            <img class="mapimg" src="dpc-map.png" alt="DPC Area Map">
-        </a>
-        <p>Tap the map to open full screen.</p>
-        <a class="directionbtn" href="https://www.google.com/maps/search/?api=1&query=49.4406,7.6003" target="_blank">
-            Navigate to Building 235
-        </a>
-    </div>
+<div class="header-text" style="text-align:center">
+<h1>Deployment Processing Center</h1>
+<p>Supported by 21st Theater Sustainment Command</p>
+</div>
 
-    <div class="section" id="services">
-        <h2>Available Services</h2>
-        <div class="table-wrapper">
-            <table>
-                <tr>
-                    <th>Service / Facility</th>
-                    <th>Location</th>
-                    <th>Availability / Hours</th>
-                    <th>Key Information</th>
-                </tr>
-                <tr>
-                    <td>Sick Call</td>
-                    <td>Building 235</td>
-                    <td>07:30 – 11:00</td>
-                    <td>Primary care for minor illnesses/injuries</td>
-                </tr>
-                <tr>
-                    <td>Mayor's Cell</td>
-                    <td>Building 230</td>
-                    <td>24 Hours</td>
-                    <td>Primary care of personnel and movements</td>
-                </tr>
-                <tr>
-                    <td>Shoppette</td>
-                    <td>On Post</td>
-                    <td>Mon-Fri 07:30 – 18:00 / Sat 10:00 – 16:00 / Sun Closed</td>
-                    <td>Convenience store</td>
-                </tr>
-                <tr>
-                    <td>Aid Station</td>
-                    <td>Building 235</td>
-                    <td>24 Hours</td>
-                    <td>Available for sickness</td>
-                </tr>
-                <tr>
-                    <td>Chaplain</td>
-                    <td>On Call</td>
-                    <td>On Call</td>
-                    <td>Spiritual support</td>
-                </tr>
-                <tr>
-                    <td>Behavioral Health</td>
-                    <td>Building 235</td>
-                    <td>24 Hours</td>
-                    <td>Mental health support</td>
-                </tr>
-                <tr>
-                    <td>USO</td>
-                    <td>Building 235</td>
-                    <td>24 Hours</td>
-                    <td>Provide comfort, entertainment, and resources</td>
-                </tr>
-                <tr>
-                    <td>Defender Dining Facility</td>
-                    <td>Near Building 238</td>
-                    <td>See posted hours</td>
-                    <td>Dining facility</td>
-                </tr>
-                <tr>
-                    <td>ROB Fitness Center</td>
-                    <td>Rhine Ordnance Barracks 172</td>
-                    <td>Mon-Fri 05:30 – 20:00 / Sat-Sun Closed</td>
-                    <td>Gym and sauna available.</td>
-                </tr>
-                <tr>
-                    <td>Military & Family Life Counseling (MFLC)</td>
-                    <td>On Call</td>
-                    <td>Contact for appointment</td>
-                    <td>Free, confidential counseling. No records kept.</td>
-                </tr>
-                <tr>
-                    <td>Protestant Worship Service</td>
-                    <td>DPC USO / Bldg. 235 Rm. 3</td>
-                    <td>Sundays @ 10:00</td>
-                    <td>Open to all personnel.</td>
-                </tr>
-                <tr>
-                    <td>Catholic Mass</td>
-                    <td>Bldg. 235 Rm. 3</td>
-                    <td>Sundays @ 14:00</td>
-                    <td>Open to all personnel.</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div></div>
 
-    <div class="section" id="contacts">
-        <h2>Important Contacts</h2>
-        <p><strong>USO Front Desk</strong></p>
-        <p>Building 235</p>
-        <br>
-        <p><strong>DPC Chaplain - CH (CPT) Gabriel Pech</strong></p>
-        <p>Cell: +49 151 5404 6158</p>
-        <p>Email: gabriel.p.pech.mil@army.mil</p>
-        <p>Services: Confidential counseling for marriage, life crisis, grief, and trauma.</p>
-        <br>
-        <p><strong>Military & Family Life Counseling (MFLC)</strong></p>
-        <p>Phone: +49-175-601-1985</p>
-        <br>
-        <p><strong>After Hours Emergency Chaplain</strong></p>
-        <p>On Call Duty Chaplain: +49 (0)162 2969054</p>
-        <br>
-        <p><strong>Emergency</strong></p>
-        <p>112</p>
-    </div>
+</header>
+
+
+<div class="menu">
+<a href="mayorcell.html">Mayor Cell</a>
+<a href="transportation.html">Transportation</a>
+<a href="services.html">Services</a>
+</div>
+
+
+<div class="hero">
+<h2>Welcome to the Deployment Processing Center</h2>
+<p>This portal provides important arrival information, facility guidance, transportation resources, and support services for personnel assigned to the DPC.</p>
+</div>
+
+
+<div class="alert-box">
+
+<div class="alert-title">General Order #1 – Alcohol Policy</div>
+
+Alcohol is strictly prohibited for all personnel assigned to the DPC, regardless of branch of service.
+
+Alcohol consumption is not allowed on or off the installation during your stay.
+
+Possession of alcohol is also prohibited.
+
+<br><br>
+
+This policy follows <b>General Order #1 signed by the Commanding General, 21st TSC</b>.
+
+<br><br>
+
+If staff smell alcohol or witness consumption they will notify:
+
+<ul>
+<li>Military Police</li>
+<li>Your Chain of Command</li>
+</ul>
+
+</div>
+
+
+<div class="info-grid">
+
+<div class="card">
+<h3>General Rules & Conduct</h3>
+<ul>
+<li>Follow all instructions given by DPC staff</li>
+<li>Soldiers must be properly dressed at all times</li>
+<li>Headphones required when using personal electronic devices</li>
+<li>Clean shared areas after each use</li>
+<li>Clean your assigned bunk before leaving</li>
+<li>Quiet hours: <b>2200 – 0600</b></li>
+</ul>
+</div>
+
+
+<div class="card">
+<h3>Billeting & Movement</h3>
+<ul>
+<li>Soldiers must sleep only in assigned areas</li>
+<li>Male and female sleeping areas are separated</li>
+<li>Sign out on the Break Roster when leaving</li>
+<li>Sign back in when returning</li>
+<li>If returning due to flight delay report to reception</li>
+</ul>
+</div>
+
+
+<div class="card">
+<h3>Restrooms & Showers</h3>
+<ul>
+<li>PHA #1 (Building 231) restrooms located in Buildings <b>241 and 242</b></li>
+<li>Other PHAs use container shower units</li>
+<li>Use restrooms assigned to your gender listed in <b>DEERS</b></li>
+</ul>
+</div>
+
+
+<div class="card">
+<h3>Laundry Facility</h3>
+<ul>
+<li>Located at <b>Building 268</b></li>
+<li>Washers, dryers and detergent are free</li>
+<li>Laundry closed <b>2100 – 0730</b></li>
+</ul>
+</div>
+
+
+<div class="card">
+<h3>USO Center</h3>
+<ul>
+<li>Located in <b>Building 235</b></li>
+<li>Open <b>24/7</b></li>
+<li>TV, Ping Pong, Pool Table</li>
+<li>Games, Snacks and Coffee</li>
+</ul>
+</div>
+
+
+<div class="card">
+<h3>Safety Information</h3>
+<ul>
+<li>First Aid Kits located in all buildings</li>
+<li>Fire extinguishers located at exits and sleeping cubes</li>
+<li>Emergency Rally Point: <b>Building 167 – Wash Rack</b></li>
+<li>Report all accidents or incidents to DPC staff</li>
+</ul>
+</div>
+
+
+<div class="card">
+<h3>Smoking Policy</h3>
+<ul>
+<li>PHA buildings are tobacco free</li>
+<li>No smoking within <b>50 feet</b> of buildings</li>
+<li>Smoking allowed only at the gazebo near the restrooms</li>
+<li>Secure valuables at all times</li>
+<li>Lockers available at Building 231</li>
+</ul>
+</div>
+
+</div>
+
+
+
+
+<!-- MAP SECTION -->
+
+<div style="max-width:1200px;margin:30px auto;background:white;padding:25px;border-radius:10px;box-shadow:0 3px 8px rgba(0,0,0,0.15);text-align:center;">
+
+<h2 style="color:#1f3a5f;margin-top:0;">DPC Area Map</h2>
+
+<p style="color:#555;margin-bottom:15px;">Tap a location on the map to open navigation or view it full screen.</p>
+
+<div style="position:relative;display:inline-block;max-width:1100px;width:100%;">
+
+<img src="dpc-map.png" style="width:100%;border-radius:8px;" alt="DPC Area Map" usemap="#dpcmap">
+
+<map name="dpcmap">
+
+<!-- Building 235 / Reception -->
+<area shape="rect" coords="520,260,620,340" href="https://www.google.com/maps/search/?api=1&query=49.4386,7.6000" target="_blank" alt="Building 235">
+
+<!-- Laundry -->
+<area shape="rect" coords="760,320,820,380" href="https://www.google.com/maps/search/?api=1&query=laundry+ROB+Kaiserslautern" target="_blank" alt="Laundry">
+
+<!-- Dining Facility -->
+<area shape="rect" coords="960,260,1100,380" href="https://www.google.com/maps/search/?api=1&query=Defender+Dining+Facility+Ramstein" target="_blank" alt="Dining Facility">
+
+<!-- ROB Gate 1 -->
+<area shape="rect" coords="1020,420,1140,520" href="https://www.google.com/maps/search/?api=1&query=ROB+Gate+1+Kaiserslautern" target="_blank" alt="ROB Gate 1">
+
+<!-- ROB Gate 2 -->
+<area shape="rect" coords="640,40,740,120" href="https://www.google.com/maps/search/?api=1&query=ROB+Gate+2+Kaiserslautern" target="_blank" alt="ROB Gate 2">
+
+</map>
+
+</div>
+
+<br><br>
+
+<a href="https://www.google.com/maps/search/?api=1&query=49.4386,7.6000" target="_blank" 
+style="background:#2e7d32;color:white;padding:14px 22px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;">
+Navigate to Building 235
+</a>
+
+</div>
+
+
+<div class="contact-box">
+
+<h3>Emergency & Contact Information</h3>
+
+<div class="contact-grid">
+
+<div>
+<b>Emergency</b><br>
+DSN: 112<br>
+Cell: +49-6371-47-112
+</div>
+
+<div>
+<b>DPC Director</b><br>
+Mr. Charles Wallace<br>
+DSN: 528-3300
+</div>
+
+<div>
+<b>PHA Chief</b><br>
+Mr. Thomas Smith<br>
+DSN: 528-3304
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+Deployment Processing Center Information Portal
+</div>
 
 </body>
 </html>
