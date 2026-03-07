@@ -13,7 +13,6 @@ body{
 font-family: Arial, sans-serif;
 margin:0;
 background:#f4f6f9;
-overflow-x:hidden;
 }
 
 /* HEADER */
@@ -54,7 +53,6 @@ background:#e6e6e6;
 position:sticky;
 top:0;
 z-index:1000;
-flex-wrap:wrap;
 }
 
 .menu a{
@@ -70,7 +68,7 @@ font-weight:bold;
 background:#1f3a5f;
 }
 
-/* CONTENT SECTION */
+/* CONTENT */
 
 .section{
 background:white;
@@ -93,19 +91,12 @@ margin:10px auto 25px auto;
 color:#555;
 }
 
-/* TABLE MOBILE FIX */
-
-.table-wrapper{
-width:100%;
-overflow-x:auto;
--webkit-overflow-scrolling:touch;
-}
+/* TABLE */
 
 .services-table{
 width:100%;
 border-collapse:collapse;
 margin-top:20px;
-min-width:750px;
 }
 
 .services-table th{
@@ -129,7 +120,7 @@ background:#f2f2f2;
 margin:6px 0 0 20px;
 }
 
-/* MOBILE ADJUSTMENTS */
+/* MOBILE RESPONSIVE TABLE */
 
 @media (max-width:768px){
 
@@ -141,6 +132,51 @@ margin:0 auto 10px auto;
 
 header{
 padding-top:25px;
+}
+
+.services-table thead{
+display:none;
+}
+
+.services-table,
+.services-table tbody,
+.services-table tr,
+.services-table td{
+display:block;
+width:100%;
+}
+
+.services-table tr{
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:8px;
+padding:10px;
+background:white;
+}
+
+.services-table td{
+border:none;
+padding:6px 0;
+}
+
+.services-table td:nth-child(1)::before{
+content:"Service / Facility: ";
+font-weight:bold;
+}
+
+.services-table td:nth-child(2)::before{
+content:"Location: ";
+font-weight:bold;
+}
+
+.services-table td:nth-child(3)::before{
+content:"Availability / Hours: ";
+font-weight:bold;
+}
+
+.services-table td:nth-child(4)::before{
+content:"Key Information: ";
+font-weight:bold;
 }
 
 .section{
@@ -177,10 +213,9 @@ margin-top:40px;
 
 <div class="menu">
 
-<a href="index.html">Home</a>
-<a href="mayorcell.html">Mayor Cell</a>
-<a href="transportation.html">Transportation</a>
-<a href="services.html">Services</a>
+<a href="#">Home</a>
+<a href="#">Mayor Cell</a>
+<a href="#">Services</a>
 
 </div>
 
@@ -194,20 +229,18 @@ dining facilities, and other essential resources available to personnel
 arriving at the Deployment Processing Center.
 </p>
 
-<p style="font-size:13px;color:#777;text-align:center;">
-Swipe left/right to view the full table on mobile.
-</p>
-
-<div class="table-wrapper">
-
 <table class="services-table">
 
+<thead>
 <tr>
 <th>Service / Facility</th>
 <th>Location</th>
 <th>Availability / Hours</th>
 <th>Key Information</th>
 </tr>
+</thead>
+
+<tbody>
 
 <tr>
 <td>Sick Call</td>
@@ -303,9 +336,9 @@ Dinner: 16:30–18:00
 <td>Dining facility for meals.</td>
 </tr>
 
-</table>
+</tbody>
 
-</div>
+</table>
 
 </div>
 
