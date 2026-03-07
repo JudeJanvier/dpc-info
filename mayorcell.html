@@ -9,7 +9,8 @@
 body{
 font-family: Arial, sans-serif;
 margin:0;
-background:#f4f6f9;
+background:#eef2f6;
+color:#222;
 }
 
 /* HEADER */
@@ -18,7 +19,9 @@ background:#2c466b;
 color:white;
 padding:20px 0;
 text-align:center;
-position:relative;
+position:sticky;
+top:0;
+z-index:1100;
 }
 
 .logo{
@@ -43,21 +46,22 @@ font-size:14px;
 display:flex;
 justify-content:center;
 gap:15px;
-padding:15px;
-background:#e6e6e6;
+padding:14px;
+background:white;
 position:sticky;
-top:0;
+top:98px;
 z-index:1000;
-flex-wrap:wrap;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
 
 .menu a{
-background:#2c466b;
+background:#1f3a5f;
 color:white;
 padding:10px 18px;
-border-radius:8px;
+border-radius:6px;
 text-decoration:none;
 font-weight:bold;
+transition:0.2s;
 }
 
 .menu a:hover{
@@ -164,65 +168,73 @@ padding:10px 14px;
 <body>
 
 <header>
+    
 <img src="logo.png" class="logo">
-<h1>Mayor Cell Information</h1>
-<p>Deployment Processing Center</p>
+
+<h1>Deployment Processing Center</h1>
+<p>Supported by 21st Theater Sustainment Command</p>
 </header>
 
 <div class="menu">
 <a href="index.html">Home</a>
+<a href="mayorcell.html">Mayor Cell</a>
 <a href="transportation.html">Transportation</a>
 <a href="services.html">Services</a>
 </div>
 
 <div class="section">
-<h2>Mayor Cell Welcome</h2>
+<h2>Welcome Message for New Arrivals</h2>
 
 <div class="notice">
 
-<strong>Good afternoon and Welcome!</strong>
+<strong>Good morning/afternoon and welcome.</strong>
 
 <p>
-PSA for new arrivals: Since Mayor Cell staff of Building 230 (ROC Drill Building)
-do not have cellphones inside the SCIF, please ensure communications are sent
-via WickedGov or come directly to the Mayor Cell.
+As a reminder to all newly arriving personnel, the Mayor Cell staff located in Building 230 (ROC Drill Building) operate within a Sensitive Compartmented Information Facility (SCIF) and therefore do not have access to cellular devices while inside the facility.
+
+For this reason, all official communications should be sent via WickedGov, or personnel may report directly to the Mayor Cell office for assistance.
 </p>
 
-<strong>Duty OIC Schedule</strong>
+<strong>Duty Officer in Charge (OIC) Schedule</strong>
 <ul>
-<li>CPT Kevin Quinde Jeton – 2200–0600</li>
-<li>CPT Tanika (Nikki) C. Watson – 1400–2200</li>
-<li>CPT Elizabeth Rodriguez – 0600–1400</li>
+<li>0600 – 1400: CPT Elizabeth Rodriguez</li>
+<li>1400 – 2200: CPT Tanika C. Watson</li>
+<li>2200 – 0600: CPT Kevin Quinde Jeton</li>
 </ul>
 
-<strong>NCOIC Schedule</strong>
+<strong>Noncommissioned Officer in Charge (NCOIC) Schedule</strong>
 <ul>
-<li>MSG Moise, Benita – 0600–1400</li>
-<li>SFC Janvier, Jude – 1400–2200</li>
-<li>SSG Harvey, Jaquan – 2200–0600</li>
+<li>0600 – 1400: MSG Benita Moise</li>
+<li>1400 – 2200: SFC Jude Janvier</li>
+<li>2200 – 0600: SSG Jaquan Harvey</li>
 </ul>
 
 <strong>Mission Leadership</strong>
 <ul>
-<li>LTC Dannenberg, Thomas – Battalion Commander</li>
-<li>CSM Blas, Raymond – Battalion Command Sergeant Major</li>
+<li>Battalion Commander: LTC Thomas Dannenberg</li>
+<li>Command Sergeant Major: CSM Raymond Blas</li>
 </ul>
 
 <p>
-You may also call the DSN from a cell phone:
-<strong>+49 611 1435230064</strong>
+Personnel may contact the Mayor Cell using DSN or commercial line:
+<ul>
+<li>DSN: 523-0064</li>
+<li>Commercial: +49 611 1435230064</li>
+</ul>
 </p>
 
 <p>
-If you need anything during your stay, the three OICs work here <strong>7 days a week</strong>.
-Our NCOICs alternate weekend coverage with additional support staff.
-You may also see our Commander, <strong>LTC D</strong>, frequently.
-Please contact the Mayor Cell first as he maintains a very busy schedule.
+The Mayor Cell leadership team provides <strong>continuous support seven days a week.</strong> The <strong>Duty OICs</strong> maintain daily coverage, 
+while <strong>NCOICs rotate weekend coverage</strong> with additional support personnel available as required.e.
 </p>
 
 <p>
-Thank you for your continued efforts and cooperation while we support
-your operations during your stay.
+You may also see our Battalion Commander, <strong>LTC Dannenberg</strong>, present throughout the facility. Due to the high operational tempo and demanding schedule,
+ we ask that <strong>all requests and coordination be routed through the Mayor Cell first.</strong>
+</p>
+
+<p>
+Thank you for your <strong>continued professionalism, cooperation, and support</strong> as we work together to facilitate mission success during your stay.
 </p>
 
 </div>
