@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DPC Transportation</title>
 
@@ -70,6 +71,10 @@ transition:0.2s;
 background:#1f3a5f;
 }
 
+.menu a.active{
+background:#7198cc;
+box-shadow:0 0 0 2px rgba(0,0,0,0.1) inset;
+}
 
 /* HERO */
 .hero{
@@ -305,6 +310,86 @@ background:#256628;
     padding:25px;
 }
 
+/* FOOTER */
+.footer{
+    text-align:center;
+    font-size:12px;
+    color:gray;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+header{
+grid-template-columns:60px 1fr;
+text-align:center;
+}
+
+header img{
+height:45px;
+}
+
+.menu{
+flex-wrap:nowrap;
+gap:20px;
+}
+
+.menu a{
+padding:8px 12px;
+font-size:14px;
+}
+
+/* HAMBURGER MENU */
+
+.hamburger{
+display:none;
+font-size:28px;
+cursor:pointer;
+color:#1f3a5f;
+font-weight:bold;
+}
+
+.menu-links{
+display:flex;
+gap:15px;
+}
+
+/* MOBILE MENU */
+
+.hamburger{
+display:block;
+}
+
+.menu{
+flex-direction:column;
+align-items:center;
+position:sticky;
+top:198px;
+z-index:1000;
+}
+
+.menu-links{
+display:none;
+flex-direction:column;
+align-items:center;
+width:100%;
+}
+
+.menu-links a{
+width:80%;
+text-align:center;
+}
+
+.menu-links.show{
+display:flex;
+}
+
+}
+
+</style>
+
 </style>
 </head>
 
@@ -326,10 +411,14 @@ background:#256628;
 
 <div class="menu">
 
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<div class="menu-links">
 <a href="index.html">Home</a>
 <a href="mayorcell.html">Mayor Cell</a>
 <a href="transportation.html">Transportation</a>
 <a href="services.html">Services</a>
+</div>
 
 </div>
 
@@ -733,6 +822,27 @@ background:#256628;
 <div class="footer">
     Deployment Processing Center Information Portal
 </div>
+
+<script>
+
+/* HAMBURGER MENU */
+
+function toggleMenu(){
+document.querySelector(".menu-links").classList.toggle("show");
+}
+
+/* ACTIVE PAGE HIGHLIGHT */
+
+const currentPage = window.location.pathname.split("/").pop();
+const menuLinks = document.querySelectorAll(".menu-links a");
+
+menuLinks.forEach(link => {
+if(link.getAttribute("href") === currentPage){
+link.classList.add("active");
+}
+});
+
+</script>
 
 </body>
 </html>
