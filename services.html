@@ -187,6 +187,12 @@ content:"Key Information: ";
 font-weight:bold;
 }
 
+/* Prevent labels inside the DFAC schedule table */
+
+.services-table td table td::before{
+content:none !important;
+}
+
 /* Prevent DFAC inner table from breaking mobile layout */
 
 .services-table td table,
