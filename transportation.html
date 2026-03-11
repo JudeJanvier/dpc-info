@@ -302,6 +302,38 @@ background:#256628;
     margin-top:0;
 }
 
+/* MAP POPUP */
+
+.map-popup{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.map-popup img{
+max-width:95%;
+max-height:95%;
+border-radius:8px;
+box-shadow:0 0 20px black;
+}
+
+.close-map{
+position:absolute;
+top:25px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
 /* FOOTER */
 .footer{
     text-align:center;
@@ -366,7 +398,7 @@ display:block;
 flex-direction:column;
 align-items:center;
 position:sticky;
-top:180px;
+top:132px;
 z-index:1000;
 }
 
@@ -418,6 +450,7 @@ display:flex;
 <a href="mayorcell.html">Mayor Cell</a>
 <a href="transportation.html">Transportation</a>
 <a href="services.html">Services</a>
+<a href="javascript:void(0);" onclick="openMap()">DPC Map</a>
 </div>
 
 </div>
@@ -823,7 +856,25 @@ display:flex;
     Deployment Processing Center Information Portal
 </div>
 
+<!-- DPC MAP POPUP -->
+
+<div id="mapPopup" class="map-popup">
+
+<span class="close-map" onclick="closeMap()">&times;</span>
+
+<img src="dpc-map.png" alt="Full Map">
+
+</div>
+
 <script>
+
+    function openMap(){
+document.getElementById("mapPopup").style.display="flex";
+}
+
+function closeMap(){
+document.getElementById("mapPopup").style.display="none";
+}
 
 /* HAMBURGER MENU */
 
