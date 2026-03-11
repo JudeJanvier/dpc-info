@@ -187,6 +187,25 @@ content:"Key Information: ";
 font-weight:bold;
 }
 
+/* Prevent DFAC inner table from breaking mobile layout */
+
+.services-table td table,
+.services-table td table tr,
+.services-table td table td,
+.services-table td table th{
+display:table;
+width:auto;
+}
+
+.services-table td table tr{
+display:table-row;
+}
+
+.services-table td table td,
+.services-table td table th{
+display:table-cell;
+}
+
 .section{
 margin:15px;
 padding:20px;
