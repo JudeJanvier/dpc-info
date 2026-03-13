@@ -1,612 +1,586 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-<title>DPC Home Portal</title>
-<link rel="icon" type="image/png" href="logo.png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<style>
-
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#eef2f6;
-color:#222;
-}
-
-/* HEADER */
-
-header{
-background:#1f3a5f;
-color:white;
-padding:18px 25px;
-display:grid;
-grid-template-columns:80px 1fr 80px;
-align-items:center;
-
-position:sticky;
-top:0;
-z-index:1100;
-}
-
-header img{
-height:55px;
-}
-
-.header-text h1{
-margin:0;
-font-size:26px;
-}
-
-.header-text p{
-margin-top:6px;
-font-size:13px;
-opacity:0.9;
-}
-
-/* NAV MENU */
-
-.menu{
-display:flex;
-justify-content:center;
-gap:15px;
-padding:14px;
-background:white;
-position:sticky;
-top:101px;
-z-index:1000;
-box-shadow:0 2px 6px rgba(0,0,0,0.15);
-}
-
-.menu a{
-background:#1f3a5f;
-color:white;
-padding:10px 18px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-transition:0.2s;
-}
-
-.menu a:hover{
-background:#2f5f9c;
-}
-
-.menu a.active{
-background:#7198cc;
-box-shadow:0 0 0 2px rgba(0,0,0,0.1) inset;
-}
-
-/* HERO */
-
-.hero{
-background:white;
-margin:25px auto 10px auto;
-padding:30px;
-max-width:1200px;
-border-radius:10px;
-box-shadow:0 3px 8px rgba(0,0,0,0.15);
-text-align:center;
-}
-
-.hero h2{
-margin-top:0;
-color:#1f3a5f;
-font-size:26px;
-}
-
-.hero p{
-font-size:15px;
-color:#555;
-}
-
-/* ALERT BOX */
-
-.alert-box{
-max-width:1200px;
-margin:20px auto;
-padding:20px;
-background:#fff3cd;
-border-left:6px solid #e0a800;
-border-radius:8px;
-font-size:15px;
-box-shadow:0 2px 6px rgba(0,0,0,0.15);
-text-align:center;
-}
-
-.alert-title{
-font-weight:bold;
-font-size:17px;
-margin-bottom:10px;
-}
-
-/* SECTION TITLE */
-
-.section-title{
-max-width:1200px;
-margin:40px auto 10px auto;
-text-align:center;
-padding:0 20px;
-}
-
-.section-title h2{
-margin:0;
-font-size:28px;
-color:#1f3a5f;
-}
-
-.section-title p{
-margin-top:8px;
-color:#555;
-font-size:15px;
-}
-
-/* INFORMATION GRID */
-
-.info-grid{
-max-width:1200px;
-margin:25px auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-padding:0 20px;
-}
-
-/* CARD STYLE */
-
-.card{
-background:white;
-padding:24px;
-border-radius:12px;
-box-shadow:0 6px 14px rgba(0,0,0,0.08);
-transition:0.25s;
-border-top:5px solid #1f3a5f;
-}
-
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 18px rgba(0,0,0,0.12);
-}
-
-.card h3{
-margin-top:0;
-margin-bottom:10px;
-font-size:18px;
-color:#1f3a5f;
-}
-
-.card ul{
-padding-left:18px;
-line-height:1.6;
-color:#444;
-}
-
-.card li{
-margin-bottom:6px;
-}
-
-/* MAP SECTION */
-
-.map-box{
-max-width:1200px;
-margin:40px auto;
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 3px 8px rgba(0,0,0,0.15);
-text-align:center;
-}
-
-.map-box h2{
-color:#1f3a5f;
-margin-top:0;
-}
-
-.map-box img{
-width:100%;
-border-radius:8px;
-cursor:pointer;
-}
-
-.map-button{
-background:#2e7d32;
-color:white;
-padding:14px 22px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-display:inline-block;
-margin-top:15px;
-}
-
-/* FULLSCREEN MAP */
-
-.map-popup{
-display:none;
-position:fixed;
-z-index:2000;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-}
-
-.map-popup img{
-max-width:95%;
-max-height:95%;
-border-radius:8px;
-box-shadow:0 0 20px black;
-}
-
-.close-map{
-position:absolute;
-top:25px;
-right:40px;
-font-size:40px;
-color:white;
-cursor:pointer;
-font-weight:bold;
-}
-
-/* CONTACT BOX */
-
-.contact-box{
-background:#1f3a5f;
-color:white;
-padding:22px;
-border-radius:10px;
-margin:30px auto;
-max-width:1200px;
-text-align:center;
-}
-
-.contact-box h3{
-margin-top:0;
-}
-
-.contact-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-/* FOOTER */
-
-.footer{
-text-align:center;
-font-size:12px;
-color:gray;
-padding:25px;
-}
-
-/* MOBILE */
-
-@media (max-width:768px){
-
-header{
-grid-template-columns:60px 1fr;
-text-align:center;
-}
-
-header img{
-height:45px;
-}
-
-.menu{
-flex-wrap:nowrap;
-gap:20px;
-}
-
-.menu a{
-padding:8px 12px;
-font-size:14px;
-}
-
-.hero{
-margin:15px;
-padding:20px;
-}
-
-.hero h2{
-font-size:22px;
-}
-
-.alert-box{
-margin:15px;
-}
-
-.info-grid{
-grid-template-columns:1fr;
-}
-
-.card{
-padding:20px;
-}
-
-.section-title h2{
-font-size:24px;
-}
-
-/* HAMBURGER MENU */
-
-.hamburger{
-display:none;
-font-size:28px;
-cursor:pointer;
-color:#1f3a5f;
-font-weight:bold;
-}
-
-.menu-links{
-display:flex;
-gap:15px;
-}
-
-/* MOBILE MENU */
-
-.hamburger{
-display:block;
-}
-.menu{
-flex-direction:column;
-align-items:center;
-position:sticky;
-top:145px;
-z-index:1000;
-}
-
-.menu-links{
-display:none;
-flex-direction:column;
-align-items:center;
-width:100%;
-}
-
-.menu-links a{
-width:80%;
-text-align:center;
-}
-
-.menu-links.show{
-display:flex;
-}
-
-}
-
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPC Home Portal</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #eef2f6;
+            color: #222;
+        }
+
+        /* Header */
+        header {
+            background: #1f3a5f;
+            color: white;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+        }
+
+        header .logo-container img {
+            height: 55px;
+            display: block;
+        }
+
+        .header-text {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .header-text p {
+            margin: 6px 0 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        /* Placeholder for spacing */
+        .header-placeholder {
+            width: 80px;
+        }
+
+        /* Navigation Menu */
+        .menu-container {
+            background: white;
+            padding: 14px;
+            position: sticky;
+            top: 91px; /* Adjusted for header height */
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .menu-links a {
+            background: #1f3a5f;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .menu-links a:hover {
+            background: #2f5f9c;
+        }
+
+        .menu-links a.active {
+            background: #7198cc;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1) inset;
+        }
+        
+        .hamburger {
+            display: none; /* Hidden by default */
+            font-size: 28px;
+            cursor: pointer;
+            color: #1f3a5f;
+        }
+
+        /* Main Content Wrapper */
+        .content-wrapper {
+             max-width: 1200px;
+             margin: 0 auto;
+             padding: 0 25px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            margin-top: 25px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .hero h2 {
+            margin-top: 0;
+            color: #1f3a5f;
+            font-size: 26px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: #555;
+        }
+
+        /* Alert Box */
+        .alert-box {
+            margin: 25px 0;
+            padding: 20px;
+            background: #fff3cd;
+            border-left: 6px solid #e0a800;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .alert-title {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+        
+        .alert-box ul {
+            list-style-position: inside;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 28px;
+            color: #1f3a5f;
+        }
+
+        .section-title p {
+            margin-top: 8px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* Information Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s, box-shadow 0.25s;
+            border-top: 5px solid #1f3a5f;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #1f3a5f;
+        }
+
+        .card ul {
+            padding-left: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin: 0;
+        }
+
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        /* Map Section */
+        .map-box {
+            margin: 40px 0;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .map-box h2 {
+            color: #1f3a5f;
+            margin-top: 0;
+        }
+
+        .map-box img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .map-button {
+            background: #2e7d32;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        
+        .map-button:hover {
+            background: #1e5e22;
+        }
+
+        /* Fullscreen Map Popup */
+        .map-popup {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .map-popup img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px black;
+        }
+
+        .close-map {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: #1f3a5f;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: gray;
+            padding: 25px;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 15px;
+                top: 0;
+            }
+            
+            header .logo-container img {
+                height: 45px;
+            }
+            
+            .header-text h1 {
+                font-size: 20px;
+            }
+
+            .header-text p {
+                font-size: 12px;
+            }
+            
+            .header-placeholder {
+                width: 45px; /* Match logo size */
+            }
+            
+            .menu-container {
+                top: 79px; /* Adjusted for smaller header */
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .hamburger {
+                display: block; /* Show hamburger icon */
+                align-self: flex-end;
+                padding: 5px;
+            }
+
+            .menu-links {
+                display: none; /* Hide menu links by default */
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 10px;
+                margin-top: 15px;
+            }
+
+            .menu-links.show {
+                display: flex; /* Show links when toggled */
+            }
+
+            .menu-links a {
+                width: 90%;
+                text-align: center;
+                padding: 12px;
+            }
+            
+            .content-wrapper {
+                 padding: 0 15px;
+            }
+            
+            .hero, .alert-box, .map-box, .contact-box, .info-grid {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .hero h2, .section-title h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Unit Logo">
+        </div>
+        <div class="header-text">
+            <h1>Deployment Processing Center</h1>
+            <p>Supported by 21st Theater Sustainment Command</p>
+        </div>
+        <div class="header-placeholder"></div>
+    </header>
 
-<div>
-<img src="logo.png" alt="Unit Logo">
-</div>
+    <div class="menu-container">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu-links" id="main-menu">
+            <a href="index.html">Home</a>
+            <a href="mayorcell.html">Mayor Cell</a>
+            <a href="transportation.html">Transportation</a>
+            <a href="services.html">Services</a>
+            <a href="#" onclick="openMap()">DPC Map</a>
+        </div>
+    </div>
+    
+    <div class="content-wrapper">
+        <div class="hero">
+            <h2>Welcome to the Deployment Processing Center</h2>
+            <p>This portal provides important arrival information, facility guidance, transportation resources, and support services for personnel assigned to the DPC.</p>
+        </div>
 
-<div class="header-text" style="text-align:center">
-<h1>Deployment Processing Center</h1>
-<p>Supported by 21st Theater Sustainment Command</p>
-</div>
+        <div class="alert-box">
+            <div class="alert-title">General Order #1 – Alcohol Policy</div>
+            Alcohol is strictly prohibited for all personnel assigned to the DPC, regardless of branch of service. Consumption is not allowed on or off the installation during your stay. Possession of alcohol is also prohibited.
+            <br><br>
+            <b>General Order #1 signed by the Commanding General, 21st TSC</b>
+            <br><br>
+            If DPC staff detect the smell of alcohol or witness alcohol consumption, they are required to notify:
+            <ul>
+                <li>Military Police</li>
+                <li>Your Chain of Command</li>
+            </ul>
+        </div>
 
-<div></div>
+        <div class="section-title">
+            <h2>Information Center</h2>
+            <p>Important guidance and facility information for all personnel staying at the Deployment Processing Center.</p>
+        </div>
 
-</header>
+        <div class="info-grid">
+            <div class="card">
+                <h3>General Rules & Conduct</h3>
+                <ul>
+                    <li>Follow all instructions given by DPC staff</li>
+                    <li>You must be properly dressed at all times</li>
+                    <li>Headphones required when using electronic devices</li>
+                    <li>Clean shared areas after each use</li>
+                    <li>Assigned bunk areas must be cleaned prior to departure</li>
+                    <li>Quiet hours: <b>2200 – 0600</b></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Billeting & Movement</h3>
+                <ul>
+                    <li>Personnel must remain within assigned sleeping areas</li>
+                    <li>Male and female personnel must remain in separate sleeping areas</li>
+                    <li>Sign out on Break Roster when leaving</li>
+                    <li>Sign back in when returning</li>
+                    <li>Report <b>flight delays</b> to reception and <b>Mayor cell</b></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Restrooms & Showers</h3>
+                <ul>
+                    <li>(PHA #1 – Building 231) Showers and restrooms located in Buildings <b>241 & 242</b></li>
+                    <li><b>Separate</b> sections for male and female personnel</li>
+                    <li>Other PHAs Showers and restrooms located in container units in front of the buildings</li>
+                    <li>Personnel must use the restroom corresponding to the <b>gender listed in DEERS</b></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Laundry Facility</h3>
+                <ul>
+                    <li>Located at <b>Building 268</b></li>
+                    <li>Washers and dryers free of charge</li>
+                    <li>Laundry detergent provided free of charge</li>
+                    <li>Closed <b>2100 – 0730</b></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>&#x1F3AE; USO Center</h3>
+                <ul>
+                    <li>Located in <b>Building 235</b></li>
+                    <li>Open <b>24/7</b></li>
+                    <li>TV, Ping Pong, Pool Table</li>
+                    <li>Games, snacks and coffee</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>&#x1F48A; Safety Information</h3>
+                <ul>
+                    <li><b>First Aid Kits:</b> Located inside all buildings and front areas of each PHA</li>
+                    <li><b>Fire Extinguishers:</b> Located at all exit doors and inside cube areas</li>
+                    <li>Emergency Rally Point: <b>Building 167</b></li>
+                    <li>Personnel must immediately report any accidents or incidents to DPC staff or management.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>&#x1F6AD; Smoking Policy</h3>
+                <ul>
+                    <li>All PHA buildings are tobacco-free.</li>
+                    <li>Smoking, vaping, or the use of lighters is <b>not permitted within 50 feet of any building.</b></li>
+                    <li>Smoking allowed at gazebo</li>
+                    <li>Secure valuables at all times</li>
+                </ul>
+            </div>
+        </div>
 
-<div class="menu">
+        <div class="map-box">
+            <h2>DPC Area Map</h2>
+            <p>Tap the map to expand fullscreen.</p>
+            <img src="dpc-map.png" alt="DPC Map" onclick="openMap()">
+            <br>
+            <a class="map-button" href="https://www.google.com/maps/place/49%C2%B026'37.2%22N+7%C2%B041'47.3%22E/@49.4436538,7.695127,713m/data=!3m2!1e3!4b1!4m12!1m7!3m6!1s0x47960d28cfe54a5f:0xff2105748155c8d2!2sROB+Java+Cafe!8m2!3d49.4433199!4d7.698876!16s%2Fg%2F11byxgc7dj!3m3!8m2!3d49.443652!4d7.696465?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                Navigate to Building 235
+            </a>
+        </div>
 
-<div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="contact-box">
+            <h3>Emergency & Contact Information</h3>
+            <div class="contact-grid">
+                <div>
+                    <b>Emergency</b><br>
+                    DSN: 112<br>
+                    Cell: +49-6371-47-112
+                </div>
+                <div>
+                    <b>DPC Director</b><br>
+                    Mr. Charles Wallace<br>
+                    DSN: +49 611 143-528-3300
+                </div>
+                <div>
+                    <b>PHA Chief</b><br>
+                    Mr. Thomas Smith<br>
+                    DSN: +49 611 143-528-3304
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="menu-links">
-<a href="index.html">Home</a>
-<a href="mayorcell.html">Mayor Cell</a>
-<a href="transportation.html">Transportation</a>
-<a href="services.html">Services</a>
-<a href="#" onclick="openMap()">DPC Map</a>
-</div>
+    <div class="footer">
+        Deployment Processing Center Information Portal
+    </div>
 
-</div>
+    <div id="mapPopup" class="map-popup">
+        <span class="close-map" onclick="closeMap()">&times;</span>
+        <img src="dpc-map.png" alt="Full Map">
+    </div>
 
+    <script>
+        /**
+         * Opens the map popup by setting its display style to 'flex'.
+         * This function is triggered by clicking on the map preview.
+         */
+        function openMap() {
+            document.getElementById("mapPopup").style.display = "flex";
+        }
 
+        /**
+         * Closes the map popup by setting its display style to 'none'.
+         * This function is triggered by clicking the '×' close button on the popup.
+         */
+        function closeMap() {
+            document.getElementById("mapPopup").style.display = "none";
+        }
 
-<div class="hero">
-<h2>Welcome to the Deployment Processing Center</h2>
-<p>This portal provides important arrival information, facility guidance, transportation resources, and support services for personnel assigned to the DPC.</p>
-</div>
+        /**
+         * Toggles the visibility of the mobile navigation menu.
+         * It adds or removes the 'show' class on the menu links container.
+         * This function is triggered by the hamburger menu icon.
+         */
+        function toggleMenu() {
+            document.getElementById("main-menu").classList.toggle("show");
+        }
 
-<div class="alert-box">
-
-<div class="alert-title">General Order #1 – Alcohol Policy</div>
-
-Alcohol is strictly prohibited for all personnel assigned to the DPC, regardless of branch of service.
-
-Consumption is not allowed on or off the installation during your stay.
-
-Possession of alcohol is also prohibited.
-
-<br><br>
-
-<b>General Order #1 signed by the Commanding General, 21st TSC</b>
-
-<br><br>
-
-If DPC staff detect the smell of alcohol or witness alcohol consumption, they are required to notify:
-
-<ul style="list-style-position:inside;padding-left:0;">
-<li>Military Police</li>
-<li>Your Chain of Command</li>
-</ul>
-
-</div>
-
-<div class="section-title">
-<h2>Information Center</h2>
-<p>Important guidance and facility information for all personnel staying at the Deployment Processing Center.</p>
-</div>
-
-<div class="info-grid">
-
-<div class="card">
-<h3> General Rules & Conduct</h3>
-<ul>
-<li>Follow all instructions given by DPC staff</li>
-<li>You must be properly dressed at all times</li>
-<li>Headphones required when using electronic devices</li>
-<li>Clean shared areas after each use</li>
-<li>Assigned bunk areas must be cleaned prior to departure</li>
-<li>Quiet hours: <b>2200 – 0600</b></li>
-</ul>
-</div>
-
-<div class="card">
-<h3> Billeting & Movement</h3>
-<ul>
-<li>Personnel must remain within assigned sleeping areas</li>
-<li>Male and female personnel must remain in separate sleeping areas</li>
-<li>Sign out on Break Roster when leaving</li>
-<li>Sign back in when returning</li>
-<li>Report <b>flight delays </b>to reception and <b>Mayer cell</b></li>
-</ul>
-</div>
-
-<div class="card">
-<h3> Restrooms & Showers</h3>
-<ul>
-<li> (PHA #1 – Building 231) Showers and restrooms located in Buildings <b>241 & 242</b></li>
-<li> <b>Separate </b> sections for male and female personnel</li>
-<li>Other PHAs Showers and restrooms located in container units in front of the buildings</li>
-<li>personnel must use the restroom corresponding to the <b>gender listed in DEERS</b></li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Laundry Facility</h3>
-<ul>
-<li>Located at <b>Building 268</b></li>
-<li>Washers and dryers free of charge</li>
-<li>Laundry detergent provided free of charge</li>
-<li>Closed <b>2100 – 0730</b></li>
-</ul>
-</div>
-
-<div class="card">
-<h3>🎮 USO Center</h3>
-<ul>
-<li>Located in <b>Building 235</b></li>
-<li>Open <b>24/7</b></li>
-<li>TV, Ping Pong, Pool Table</li>
-<li>Games, snacks and coffee</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>🚑 Safety Information</h3>
-<ul>
-<li><b>First Aid Kits:</b> Located inside all buildings and front areas of each PHA</li>
-<li> <b>Fire Extinguishers:</b> Located at all exit doors and inside cube areas</li>
-<li>Emergency Rally Point: <b>Building 167</b></li>
-<li>Personnel must immediately report any accidents or incidents to DPC staff or management.</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>🚭 Smoking Policy</h3>
-<ul>
-<li>All PHA buildings are tobacco-free.</li>
-<li>Smoking, vaping, or the use of lighters is <b>not permitted within 50 feet of any building.</b>
-<li>Smoking allowed at gazebo</li>
-<li>Secure valuables at all times</li>
-</ul>
-</div>
-
-</div>
-
-<div class="map-box">
-
-<h2>DPC Area Map</h2>
-
-<p>Tap the map to expand fullscreen.</p>
-
-<img src="dpc-map.png" alt="DPC Map" onclick="openMap()">
-
-<br>
-
-<a class="map-button" href="https://www.google.com/maps/place/49%C2%B026'37.2%22N+7%C2%B041'47.3%22E/@49.4436538,7.695127,713m/data=!3m2!1e3!4b1!4m12!1m7!3m6!1s0x47960d28cfe54a5f:0xff2105748155c8d2!2sROB+Java+Cafe!8m2!3d49.4433199!4d7.698876!16s%2Fg%2F11byxgc7dj!3m3!8m2!3d49.443652!4d7.696465?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-Navigate to Building 235
-</a>
-
-</div>
-
-<div id="mapPopup" class="map-popup">
-<span class="close-map" onclick="closeMap()">&times;</span>
-<img src="dpc-map.png" alt="Full Map">
-</div>
-
-<div class="contact-box">
-
-<h3>Emergency & Contact Information</h3>
-
-<div class="contact-grid">
-
-<div>
-<b>Emergency</b><br>
-DSN: 112<br>
-Cell: +49-6371-47-112
-</div>
-
-<div>
-<b>DPC Director</b><br>
-Mr. Charles Wallace<br>
-DSN: +49 611 143-528-3300
-</div>
-
-<div>
-<b>PHA Chief</b><br>
-Mr. Thomas Smith<br>
-DSN: +49 611 143-528-3304
-</div>
-
-</div>
-
-</div>
-
-<div class="footer">
-Deployment Processing Center Information Portal
-</div>
-
-<script>
-
-function openMap(){
-document.getElementById("mapPopup").style.display="flex";
-}
-
-function closeMap(){
-document.getElementById("mapPopup").style.display="none";
-}
-
-function toggleMenu(){
-document.querySelector(".menu-links").classList.toggle("show");
-}
-
-// Highlight active page in menu
-const currentPage = window.location.pathname.split("/").pop();
-const menuLinks = document.querySelectorAll(".menu-links a");
-
-menuLinks.forEach(link => {
-if(link.getAttribute("href") === currentPage){
-link.classList.add("active");
-}
-});
-
-</script>
-
+        /**
+         * Automatically highlights the current page's link in the navigation menu.
+         * It compares the link's href with the current page's URL and adds an 'active' class.
+         * This script runs automatically when the page loads.
+         */
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const currentPage = window.location.href;
+            const menuLinks = document.querySelectorAll(".menu-links a");
+            
+            menuLinks.forEach(link => {
+                // If the link's href is a part of the current URL, mark it as active.
+                // This handles both "index.html" and "/" cases for the home page.
+                if (currentPage.endsWith(link.getAttribute("href"))) {
+                    link.classList.add("active");
+                }
+            });
+            
+            // A specific check for the home page if no other link is active
+            const hasActiveLink = Array.from(menuLinks).some(link => link.classList.contains('active'));
+            if (!hasActiveLink && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+                 const homeLink = document.querySelector('.menu-links a[href="index.html"]');
+                 if(homeLink) {
+                    homeLink.classList.add('active');
+                 }
+            }
+        });
+    </script>
 </body>
 </html>
